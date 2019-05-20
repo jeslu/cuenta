@@ -12,7 +12,7 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: practica
+  database: cuenta
   username: root
   password: verico9420
   host: localhost
