@@ -33,6 +33,11 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'devise'
+gem "bulma-rails", "~> 0.7.5"
+gem 'paperclip'
+gem 'devise'
+gem 'unicorn'
+gem 'nokogiri'
 
 
 group :development, :test do
