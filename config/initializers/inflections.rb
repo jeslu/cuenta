@@ -14,3 +14,15 @@
 # ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.acronym 'RESTful'
 # end
+ ActiveSupport::Inflector.inflections do |inflect|
+   # MODULO AUTOLAVADO
+
+   inflect.irregular 'auto','autos'
+   inflect.irregular 'empleado','empleados'
+   inflect.irregular 'horario','horarios'
+   inflect.irregular 'serv_tipo','serv_tipos'
+   inflect.irregular 'servicio','servicios'
+   inflect.irregular 'serv_categoria','serv_categorias'
+   inflect.irregular 'solicitud_servicio','solicitud_servicios'
+
+ end

@@ -5,15 +5,16 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
+gem 'geocoder', '~> 1.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.7'
+gem 'rails', '~> 5.1.6', '>= 5.1.6.1'
 # Use sqlite3 as the database for Active Record
 gem 'mysql2'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem 'rails-assets-bulma', source: 'https://rails-assets.org'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -32,19 +33,12 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'devise'
-gem "bulma-rails", "~> 0.7.5"
-gem 'paperclip'
-gem 'devise'
-gem 'unicorn'
-gem 'nokogiri'
-
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
+  gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
 end
 

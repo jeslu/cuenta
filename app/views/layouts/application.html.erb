@@ -3,14 +3,19 @@
   <head>
     <title>J&G App Web</title>
     <%= csrf_meta_tags %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "#{@URL_DOMAIN}/libs/bulma/bulma.min.css?=#{@VRS_ASSETS}",media: 'all' , 'data-turbolinks-track': 'reload'%>
   </head>
 
   <body>
+ <%= render "_shared/menu"%>
+  <div class="container">
     <%= yield %>
+</div>
+
+
   </body>
+  
 </html>
