@@ -23,29 +23,34 @@
             <a class="navbar-item">
               Inicio
             </a>
-
+            <a class="navbar-item">
+              Cuenta
+            </a>
 
 
             <div   class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link">
-                Servicios
+                Productos
               </a>
               <div class="navbar-dropdown">
                 <a class="navbar-item">
-                  Basico
+                  Categoria
                 </a>
                 <a class="navbar-item">
-                  Medio
+                  Marca
                 </a>
                 <a class="navbar-item">
-                  Completo
+                  Unidad Medida
                 </a>
                 <hr class="navbar-divider">
                 <a class="navbar-item">
-                Servicios extras
+                Inventario
                 </a>
               </div>
             </div>
+            <a class="navbar-item">
+              Clientes
+            </a>
             <a class="navbar-item">
               Perfil
             </a>
@@ -53,12 +58,27 @@
           <div class="navbar-end">
             <div class="navbar-item">
               <div class="buttons">
-                <a class="button is-primary">
-                  <strong>Registrate</strong>
-                </a>
-                <a class="button is-light">
-                  Iniciar Sesion
-                </a>
+                    <% if user_signed_in? %>
+                  <div   class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        <%=current_user.email%>
+                    </a>
+                    <div class="navbar-dropdown">
+                      <a class="navbar-item">
+                          <%= link_to 'Editar usuario', edit_user_registration_path %>
+                      </a>
+                      <hr class="navbar-divider">
+                      <a class="navbar-item">
+                       <%= link_to "Salir", destroy_user_session_path, method: :delete %>
+                      </a>
+                    </div>
+                  </div>
+                  <%end%>
+
+
+
+
+
               </div>
             </div>
           </div>
@@ -75,6 +95,13 @@
           nav.classList.toggle('is-active');
         });
       })();
+
+      let dropdown = document.querySelector('.dropdown');
+  dropdown.addEventListener('click', function(event) {
+      event.stopPropagation();
+      dropdown.classList.toggle('is-active');
+  });
     </script>
+
   </body>
 </html>

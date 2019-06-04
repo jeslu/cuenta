@@ -10,22 +10,21 @@
   </head>
 
   <body>
-  
+
   <div>
   <% if signed_in? %>
-    <%= link_to "Salir", destroy_user_session_path, method: :delete %>
+  <%= render "_shared/menu"%>
   <% else %>
     <%= link_to "Registrarse", new_user_registration_path %>
     <%= link_to "Ingresar", new_user_session_path %>
   <% end %>
 </div>
 
- <%= render "_shared/menu"%>
   <div class="container">
     <%= yield %>
 </div>
 
 
   </body>
-  
+
 </html>
