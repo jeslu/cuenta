@@ -6,7 +6,9 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
     <%= stylesheet_link_tag "#{@URL_DOMAIN}/libs/bulma/bulma.min.css?=#{@VRS_ASSETS}",media: 'all' , 'data-turbolinks-track': 'reload'%>
+     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
   </head>
 
   <body>
@@ -24,7 +26,6 @@
     <%= yield %>
 </div>
 
-
-  </body>
+</body>
 
 </html>

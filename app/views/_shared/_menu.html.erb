@@ -57,7 +57,7 @@
           </div>
           <div class="navbar-end">
             <div class="navbar-item">
-              <div class="buttons">
+
                     <% if user_signed_in? %>
                   <div   class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">
@@ -74,34 +74,22 @@
                     </div>
                   </div>
                   <%end%>
-
-
-
-
-
-              </div>
             </div>
           </div>
         </div>
       </div>
     </nav>
 
-    <script type="text/javascript">
-      (function() {
-        var burger = document.querySelector('.burger');
-        var nav = document.querySelector('#'+burger.dataset.target);
-        burger.addEventListener('click', function(){
-          burger.classList.toggle('is-active');
-          nav.classList.toggle('is-active');
-        });
-      })();
-
-      let dropdown = document.querySelector('.dropdown');
-  dropdown.addEventListener('click', function(event) {
-      event.stopPropagation();
-      dropdown.classList.toggle('is-active');
-  });
-    </script>
+      <script type="text/javascript">
+        (function() {
+          var burger = document.querySelector('.burger');
+          var nav = document.querySelector('#'+burger.dataset.target);
+          burger.addEventListener('click', function(){
+            burger.classList.toggle('is-active');
+            nav.classList.toggle('is-active');
+          });
+        })();
+      </script>
 
   </body>
 </html>
