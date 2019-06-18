@@ -1,43 +1,148 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title">
+          Realizar cambios del Usuario
+        </h2>
+        <div class="container">
+          <div class="notification">
+          
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+              <%= render "devise/shared/error_messages", resource: resource %>
+              <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Nombre:</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control is-expanded has-icons-left">
+                <%= f.text_field :nombre, autofocus: true,autocomplete: "nombre", :class => "input is-success"  %>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
+                <span class="icon is-small is-left">
+                  <i class="fas fa-user"></i>
+                </span>
+              </p>
+            </div>
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <div>Actualmente en espera de confirmación para: <%= resource.unconfirmed_email %></div>
+            <% end %>
+            <div class="field">
+              <p class="control is-expanded has-icons-left has-icons-right">
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "input is-success" %>
+                <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                </span>
+                <span class="icon is-small is-right">
+                  <i class="fas fa-check"></i>
+                </span>
+              </p>
+            </div>
+          </div>
+          </div>
+          <div class="field is-horizontal">
+          <div class="field-label is-normal">
+          <label class="label">Contraseña: </label>
+          </div>
+          <div class="field-body">
+          <i>(Dejar en blanco si no quieres cambiarlo)</i><br />
+          <div class="field">
+          <p class="control is-expanded has-icons-left has-icons-right">
+          <%= f.password_field :password, autocomplete: "nueva contraseña",placeholder: "Contraseña", :class => "input is-success" %>
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+            <span class="icon is-small is-right">
+              <i class="fas fa-check"></i>
+            </span>
+          </p>
+          <% if @minimum_password_length %>
+            <br />
+            <em><%= @minimum_password_length %> caracteres mínimo</em>
+          <% end %>
+          </div>
+          <div class="field">
+          <p class="control is-expanded has-icons-left has-icons-right">
+            <%= f.password_field :password_confirmation, autocomplete: "nueva contraseña",placeholder: "Confirmar Contraseña", :class => "input is-success" %>
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+          <span class="icon is-small is-right">
+            <i class="fas fa-check"></i>
+          </span>
+          </p>
+          </div>
+          </div>
+          </div>
 
-<h3>Cancel my account</h3>
+          <div class="field is-horizontal">
+          <div class="field-label is-normal">
+          <label class="label">Contraseña Actual: </label>
+          </div>
+          <div class="field-body">
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+          <div class="field">
+          <p class="control is-expanded has-icons-left has-icons-right">
+            <%= f.password_field :current_password, autocomplete: "contraseña actual", :class => "input is-success" %>
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+            <span class="icon is-small is-right">
+              <i class="fas fa-check"></i>
 
-<%= link_to "Back", :back %>
+            </span>
+          </p>
+  <i>(Necesitamos su contraseña actual para confirmar sus cambios.)</i><br />
+          </div>
+          <div class="field">
+          <p class="control is-expanded has-icons-left has-icons-right">
+               <%= f.label :avatar, "foto" %>
+             <%= f.file_field :avatar %>
+          <span class="icon is-small is-left">
+
+          </span>
+          <span class="icon is-small is-right">
+            <i class="fas fa-check"></i>
+          </span>
+          </p>
+          </div>
+          </div>
+          </div>
+
+
+
+          <div class="field is-horizontal">
+          <div class="field-label">
+            <!-- Left empty for spacing -->
+
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <div class="actions">
+                  <%= f.submit "Actualizar", :class => "button is-link"%>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+            <% end %>
+
+            <h3>Cancelar mi cuenta</h3>
+
+            <p>Infeliz? <%= button_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class => "button is-danger" %></p>
+
+          </div>
+            <%= link_to "Regresar", :back %>
+        </div>
+
+
+
+      </div>
+    </div>
+  </section>

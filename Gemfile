@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem "bulma-rails", "~> 0.7.5"
 gem 'devise'
+gem "paperclip", "~> 6.0.0"
 
 
 group :development, :test do
