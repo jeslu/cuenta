@@ -62,7 +62,9 @@
                   <div   class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">
                         <%=current_user.nombre%>
-                          <li class="round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></li>
+
+                            <img class="is-rounded", <%= image_tag(current_user.avatar.url(:thumb)) %>
+                        
                     </a>
                     <div class="navbar-dropdown">
                       <a class="navbar-item">
