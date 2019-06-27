@@ -24,5 +24,8 @@
    inflect.irregular 'servicio','servicios'
    inflect.irregular 'serv_categoria','serv_categorias'
    inflect.irregular 'solicitud_servicio','solicitud_servicios'
+   # MODULO CUENTA
+   inflect.irregular 'cliente', 'clientes'
+   
 
  end

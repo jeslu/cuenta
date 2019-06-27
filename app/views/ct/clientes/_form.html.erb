@@ -1,0 +1,32 @@
+<%= form_with(model: ct_cliente, local: true) do |form| %>
+  <% if ct_cliente.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ct_cliente.errors.count, "error") %> prohibited this ct_cliente from being saved:</h2>
+
+      <ul>
+      <% ct_cliente.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, id: :ct_cliente_nombre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :telefono %>
+    <%= form.text_field :telefono, id: :ct_cliente_telefono %>
+  </div>
+
+  <div class="field">
+    <%= form.label :direccion %>
+    <%= form.text_field :direccion, id: :ct_cliente_direccion %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
