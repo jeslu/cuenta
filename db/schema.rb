@@ -10,12 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190625043506) do
+ActiveRecord::Schema.define(version: 20190720003029) do
 
-  create_table "ct_clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "ct_producto_catalogos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.bigint "categoria_id"
+    t.bigint "umedida_id"
+    t.bigint "marca_id"
+    t.string "barcode"
+    t.text "descripcion"
+    t.text "json"
     t.string "nombre"
-    t.string "telefono"
-    t.string "direccion"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ct_producto_categorias", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "categoria"
+    t.boolean "activo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ct_producto_marcas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "marca"
+    t.boolean "activo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ct_producto_umedidas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "medida"
+    t.boolean "activo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,0 +1,27 @@
+<%= form_with(model: ct_producto_umedida, local: true) do |form| %>
+  <% if ct_producto_umedida.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ct_producto_umedida.errors.count, "error") %> prohibited this ct_producto_umedida from being saved:</h2>
+
+      <ul>
+      <% ct_producto_umedida.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :medida %>
+    <%= form.text_field :medida, id: :ct_producto_umedida_medida %>
+  </div>
+
+  <div class="field">
+    <%= form.label :activo %>
+    <%= form.check_box :activo, id: :ct_producto_umedida_activo %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

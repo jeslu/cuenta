@@ -1,5 +1,7 @@
 class User < ApplicationRecord
+  self.table_name = "users"
   # Include default devise modules. Others available are:
+
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -9,4 +11,5 @@ class User < ApplicationRecord
   validates_attachment_file_name :avatar, matches: [/png\Z/, /jpe?g\Z/]
   # Explicitly do not validate
   do_not_validate_attachment_file_type :avatar
+has_many :Catalogos, :class_name => "Ct::ProductoCatalogo" , :foreign_key => "user_id"
 end

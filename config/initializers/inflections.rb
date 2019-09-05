@@ -26,6 +26,10 @@
    inflect.irregular 'solicitud_servicio','solicitud_servicios'
    # MODULO CUENTA
    inflect.irregular 'cliente', 'clientes'
-   
+   inflect.irregular 'producto_marca', 'producto_marcas'
+   inflect.irregular 'producto_umedida','producto_umedidas'
+   inflect.irregular 'producto_categoria','producto_categorias'
+   inflect.irregular 'producto_catalogo','producto_catalogos'
+
 
  end

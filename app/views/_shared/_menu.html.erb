@@ -34,17 +34,17 @@
               </a>
               <div class="navbar-dropdown">
                 <a class="navbar-item">
-                  Categoria
+                <%= link_to 'Categorias',   ct_producto_categorias_path,:class => "navbar-item"%>
                 </a>
                 <a class="navbar-item">
-                  Marca
+                  <%= link_to 'Marca',   ct_producto_marcas_path,:class => "navbar-item"%>
                 </a>
                 <a class="navbar-item">
-                  Unidad Medida
+                <%= link_to 'Unidad Medida', ct_producto_umedidas_path,:class => "navbar-item"%>
                 </a>
                 <hr class="navbar-divider">
                 <a class="navbar-item">
-                Inventario
+                <%= link_to 'Catalogo', ct_producto_catalogos_path,:class => "navbar-item"%>
                 </a>
               </div>
             </div>

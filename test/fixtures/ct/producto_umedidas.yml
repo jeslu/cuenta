@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  medida: MyString
+  activo: false
+
+two:
+  medida: MyString
+  activo: false
