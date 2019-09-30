@@ -33,9 +33,12 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem "bulma-rails", "~> 0.7.5"
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
 gem 'devise'
 gem "paperclip", "~> 6.0.0"
+gem 'unicorn'
+gem 'nokogiri'
 
 
 group :development, :test do
