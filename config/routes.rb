@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
 
 
-  resources :orden_servicios
-  resources :servicios
-  resources :equipos
-  resources :tipo_equipos
+  namespace :os do
+    resources :tipo_equipos
+  end
+  namespace :os do
+    resources :orden_servicios
+  end
+  namespace :os do
+    resources :equipos
+  end
+  namespace :os do
+    resources :servicios
+  end
   resources :modelos
   resources :marcas
   resources :clientes

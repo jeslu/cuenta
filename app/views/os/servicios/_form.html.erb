@@ -1,0 +1,32 @@
+<%= form_with(model: os_servicio, local: true) do |form| %>
+  <% if os_servicio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(os_servicio.errors.count, "error") %> prohibited this os_servicio from being saved:</h2>
+
+      <ul>
+      <% os_servicio.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :servicio %>
+    <%= form.text_field :servicio, id: :os_servicio_servicio %>
+  </div>
+
+  <div class="field">
+    <%= form.label :costo %>
+    <%= form.text_field :costo, id: :os_servicio_costo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :descripcion %>
+    <%= form.text_area :descripcion, id: :os_servicio_descripcion %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

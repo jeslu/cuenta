@@ -1,9 +1,9 @@
 require "application_system_test_case"
 
-class OrdenServiciosTest < ApplicationSystemTestCase
+class Os::OrdenServiciosTest < ApplicationSystemTestCase
   # test "visiting the index" do
-  #   visit orden_servicios_url
+  #   visit os_orden_servicios_url
   #
-  #   assert_selector "h1", text: "OrdenServicio"
+  #   assert_selector "h1", text: "Os::OrdenServicio"
   # end
 end

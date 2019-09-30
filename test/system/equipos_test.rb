@@ -1,9 +1,9 @@
 require "application_system_test_case"
 
-class EquiposTest < ApplicationSystemTestCase
+class Os::EquiposTest < ApplicationSystemTestCase
   # test "visiting the index" do
-  #   visit equipos_url
+  #   visit os_equipos_url
   #
-  #   assert_selector "h1", text: "Equipo"
+  #   assert_selector "h1", text: "Os::Equipo"
   # end
 end

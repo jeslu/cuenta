@@ -1,0 +1,2 @@
+module Os::EquiposHelper
+end

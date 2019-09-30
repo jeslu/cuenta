@@ -1,0 +1,2 @@
+module Os::TipoEquiposHelper
+end

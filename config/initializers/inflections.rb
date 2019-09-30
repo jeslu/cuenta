@@ -31,6 +31,12 @@
    inflect.irregular 'producto_categoria','producto_categorias'
    inflect.irregular 'producto_catalogo','producto_catalogos'
    inflect.irregular 'cuenta', 'cuentas'
+   # MODULO ORDEN DE servicios
+   inflect.irregular 'modelo', 'modelos'
+   inflect.irregular 'os_equipo','os_equipos'
+   inflect.irregular 'os_tipo_equipo','os_tipo_equipos'
+   inflect.irregular 'os_servicio','os_servicios'
+   inflect.irregular 'os_orden_servicio','os_orden_servicios'
 
 
  end

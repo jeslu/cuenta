@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @os_tipo_equipo.tipo %>
+</p>
+
+<p>
+  <strong>Activo:</strong>
+  <%= @os_tipo_equipo.activo %>
+</p>
+
+<%= link_to 'Edit', edit_os_tipo_equipo_path(@os_tipo_equipo) %> |
+<%= link_to 'Back', os_tipo_equipos_path %>

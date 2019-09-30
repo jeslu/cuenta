@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :cliente_id %>
-    <%= form.collection_select(:cliente_id, Ct::Cliente.all, :id, :nombre, options = {}, {:class => "select"})%>
+    <%= form.collection_select(:cliente_id, Cliente.all, :id, :nombre, options = {}, {:class => "select"})%>
   </div>
 
   <div class="field">

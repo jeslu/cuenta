@@ -1,2 +1,0 @@
-class TipoEquipo < ApplicationRecord
-end

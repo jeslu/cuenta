@@ -1,0 +1,37 @@
+<%= form_with(model: os_equipo, local: true) do |form| %>
+  <% if os_equipo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(os_equipo.errors.count, "error") %> prohibited this os_equipo from being saved:</h2>
+
+      <ul>
+      <% os_equipo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :n_serie %>
+    <%= form.text_field :n_serie, id: :os_equipo_n_serie %>
+  </div>
+
+  <div class="field">
+    <%= form.label :marca_id %>
+    <%= form.text_field :marca_id, id: :os_equipo_marca_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :modelo_id %>
+    <%= form.text_field :modelo_id, id: :os_equipo_modelo_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tipo_equipo_id %>
+    <%= form.text_field :tipo_equipo_id, id: :os_equipo_tipo_equipo_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

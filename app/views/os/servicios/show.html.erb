@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Servicio:</strong>
+  <%= @os_servicio.servicio %>
+</p>
+
+<p>
+  <strong>Costo:</strong>
+  <%= @os_servicio.costo %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @os_servicio.descripcion %>
+</p>
+
+<%= link_to 'Edit', edit_os_servicio_path(@os_servicio) %> |
+<%= link_to 'Back', os_servicios_path %>
