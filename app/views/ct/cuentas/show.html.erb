@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cliente:</strong>
+  <%= @ct_cuenta.cliente_id %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @ct_cuenta.fecha %>
+</p>
+
+<p>
+  <strong>Activo:</strong>
+  <%= @ct_cuenta.activo %>
+</p>
+
+<%= link_to 'Edit', edit_ct_cuenta_path(@ct_cuenta) %> |
+<%= link_to 'Back', ct_cuentas_path %>

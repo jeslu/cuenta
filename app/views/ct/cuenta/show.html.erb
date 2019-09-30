@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cliente:</strong>
+  <%= @ct_cuentum.cliente_id %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @ct_cuentum.fecha %>
+</p>
+
+<p>
+  <strong>Activo:</strong>
+  <%= @ct_cuentum.activo %>
+</p>
+
+<%= link_to 'Edit', edit_ct_cuentum_path(@ct_cuentum) %> |
+<%= link_to 'Back', ct_cuenta_path %>

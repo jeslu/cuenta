@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  servicio: MyString
+  costo: 9.99
+  descripcion: MyText
+
+two:
+  servicio: MyString
+  costo: 9.99
+  descripcion: MyText

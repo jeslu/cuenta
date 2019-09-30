@@ -30,6 +30,7 @@
    inflect.irregular 'producto_umedida','producto_umedidas'
    inflect.irregular 'producto_categoria','producto_categorias'
    inflect.irregular 'producto_catalogo','producto_catalogos'
+   inflect.irregular 'cuenta', 'cuentas'
 
 
  end

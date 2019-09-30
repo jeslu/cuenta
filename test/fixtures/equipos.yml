@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  n_serie: MyString
+  marca: one
+  modelo: one
+  tipo_equipo: one
+
+two:
+  n_serie: MyString
+  marca: two
+  modelo: two
+  tipo_equipo: two

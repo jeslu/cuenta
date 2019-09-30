@@ -1,15 +1,35 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Ct Clientes</h1>
-<%= render 'form', ct_cliente: @ct_cliente %>
+<h1>Clientes</h1>
 
-<table>
+
+<!-- app -->
+<div class="column" >
+<div id="app">
+
+    <a class="button is-success" id="show-modal" @click="showModal = true">Nuevo Cliente</a>
+    <!-- use the modal component, pass in the prop -->
+    <modal v-if="showModal" @close="showModal = false">
+        <!--
+
+        -->
+
+    </modal>
+</div>
+</div>
+<br>
+<!--TERMINA MODAL-->
+
+<div class="columns is-mobile">
+<div class="card">
+ <div class="card-content">
+<table class="table is-hoverable">
   <thead>
     <tr>
       <th>Nombre</th>
       <th>Telefono</th>
       <th>Direccion</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -21,12 +41,73 @@
         <td><%= ct_cliente.direccion %></td>
         <td><%= link_to 'Show', ct_cliente %></td>
         <td><%= link_to 'Edit', edit_ct_cliente_path(ct_cliente) %></td>
-        <td><%= link_to 'Destroy', ct_cliente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'X', ct_cliente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+
+</div>
+</div>
+</div>
 <br>
 
-<%= link_to 'New Ct Cliente', new_ct_cliente_path %>
+
+
+
+
+<!--VUE.JS MODAL-->
+
+
+
+<script type="text/x-template" id="modal-template">
+  <transition name="modal">
+
+<div class="modal is-active">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Nuevo Cliente</p>
+      <button class="delete" aria-label="close" @click="$emit('close')"></button>
+    </header>
+
+    <section class="modal-card-body">
+    <p>Cada cuenta creada sera unica para cada cliente...</p>
+      <!-- Content  inicia... -->
+<br>
+
+
+     <%= render 'form', ct_cliente: @ct_cliente %>
+
+
+
+      <!-- Content  termina... -->
+    </section>
+    <footer class="modal-card-foot">
+
+      <button class="button is-warning" @click="$emit('close')">Cancelar</button>
+    </footer>
+  </div>
+</div>
+  </transition>
+</script>
+
+
+
+
+<script type="text/javascript">
+  Vue.component('modal',
+          {
+              template: '#modal-template'
+          })
+
+// start app
+  new Vue({
+      el: '#app',
+      data: {
+          showModal: false
+      }
+  })
+
+</script>

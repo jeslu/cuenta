@@ -1,9 +1,21 @@
 Rails.application.routes.draw do
 
 
+  resources :orden_servicios
+  resources :servicios
+  resources :equipos
+  resources :tipo_equipos
+  resources :modelos
+  resources :marcas
+  resources :clientes
   namespace :ct do
-      resources :clientes
-          resources :producto_umedidas
+    resources :cuentas
+  end
+  namespace :ct do
+    resources :cuenta
+  end
+  namespace :ct do
+              resources :producto_umedidas
             resources :producto_marcas
              resources :producto_categorias
                resources :producto_catalogos
