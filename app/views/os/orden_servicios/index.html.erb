@@ -16,10 +16,10 @@
   <tbody>
     <% @os_orden_servicios.each do |os_orden_servicio| %>
       <tr>
-        <td><%= os_orden_servicio.user %></td>
-        <td><%= os_orden_servicio.cliente %></td>
-        <td><%= os_orden_servicio.servicio_id %></td>
-        <td><%= os_orden_servicio.equipo_id %></td>
+        <td><%= os_orden_servicio.User.nombre %></td>
+        <td><%= os_orden_servicio.Cliente.nombre %></td>
+        <td><%= os_orden_servicio.Servicio.servicio %></td>
+        <td><%= os_orden_servicio.Equipo.n_serie %></td>
         <td><%= link_to 'Show', os_orden_servicio %></td>
         <td><%= link_to 'Edit', edit_os_orden_servicio_path(os_orden_servicio) %></td>
         <td><%= link_to 'Destroy', os_orden_servicio, method: :delete, data: { confirm: 'Are you sure?' } %></td>

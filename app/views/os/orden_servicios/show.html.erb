@@ -2,22 +2,22 @@
 
 <p>
   <strong>User:</strong>
-  <%= @os_orden_servicio.user %>
+  <%= @os_orden_servicio.User.nombre %>
 </p>
 
 <p>
   <strong>Cliente:</strong>
-  <%= @os_orden_servicio.cliente %>
+  <%= @os_orden_servicio.Cliente.nombre %>
 </p>
 
 <p>
   <strong>Servicio:</strong>
-  <%= @os_orden_servicio.servicio_id %>
+  <%= @os_orden_servicio.Servicio.servicio %>
 </p>
 
 <p>
   <strong>Equipo:</strong>
-  <%= @os_orden_servicio.equipo_id %>
+  <%= @os_orden_servicio.Equipo.n_serie %>
 </p>
 
 <%= link_to 'Edit', edit_os_orden_servicio_path(@os_orden_servicio) %> |

@@ -7,17 +7,17 @@
 
 <p>
   <strong>Marca:</strong>
-  <%= @os_equipo.marca %>
+  <%= @os_equipo.Marca.marca %>
 </p>
 
 <p>
   <strong>Modelo:</strong>
-  <%= @os_equipo.modelo %>
+  <%= @os_equipo.Modelo.modelo %>
 </p>
 
 <p>
   <strong>Tipo equipo:</strong>
-  <%= @os_equipo.tipo_equipo_id %>
+  <%= @os_equipo.TipoEquipo.tipo %>
 </p>
 
 <%= link_to 'Edit', edit_os_equipo_path(@os_equipo) %> |

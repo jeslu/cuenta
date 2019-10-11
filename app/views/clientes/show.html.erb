@@ -1,34 +1,69 @@
 <p id="notice"><%= notice %></p>
+<!-- CLIENTE -->
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">  <%= @cliente.nombre %> <%= @cliente.apellido_p %> <%= @cliente.apellido_m %></h5>
+    <h6 class="card-subtitle mb-2 text-muted">Cliente</h6>
+    <h7 class="card-title">Direccion: <a href="#" class="card-link">  <%= @cliente.direccion %></a></h7>
+    <h7 class="card-title">Telefono: <a href="#" class="card-link">  <%= @cliente.telefono %></a></h7>
+     <p class="card-text"><small class="text-muted"><%= @cliente.updated_at.to_date %></small></p>
+    <a href="#" class="card-link"><%= link_to 'Actualizar', edit_cliente_path(@cliente) %> </a>
+    <a href="#" class="card-link">Eliminar</a>
+  </div>
+</div>
+<!-- ORDEN DE SERVICIO -->
+<div class="card">
+  <div class="card-header">
+    <a href="#">+ Orden de Servicio</a>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @cliente.nombre %>
-</p>
 
-<p>
-  <strong>Apellido p:</strong>
-  <%= @cliente.apellido_p %>
-</p>
+<!-- FORMULARIO DE ORDEN DE SERVICIO-->
+<%= form_with(model: Os::OrdenServicio.new, local: true, url: "#{@URL_DOMAIN}/clientes/#{@cliente.id}/orden_servicios") do |form| %>
 
-<p>
-  <strong>Apellido m:</strong>
-  <%= @cliente.apellido_m %>
-</p>
 
-<p>
-  <strong>Direccion:</strong>
-  <%= @cliente.direccion %>
-</p>
+<div class="field">
+  <%= form.label :cliente_id%>
+  <%= form.collection_select(:cliente_id, Cliente.all, :id, :nombre, options = {}, {:class => "form-control"})%>
 
-<p>
-  <strong>Telefono:</strong>
-  <%= @cliente.telefono %>
-</p>
+</div>
 
-<p>
-  <strong>Activo:</strong>
-  <%= @cliente.activo %>
-</p>
+
+
+
+  <div class="field">
+    <%= form.label :servicio_id %>
+
+    <%= form.collection_select(:servicio_id, Os::Servicio.all, :id, :servicio, options = {}, {:class => "form-control"})%>
+
+  </div>
+
+  <div class="field">
+    <%= form.label :equipo_id %>
+
+    <%= form.collection_select(:equipo_id, Os::Equipo.all, :id, :n_serie, options = {}, {:class => "form-control"})%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
+
+
 
 <%= link_to 'Edit', edit_cliente_path(@cliente) %> |
 <%= link_to 'Back', clientes_path %>

@@ -1,34 +1,24 @@
 <%= form_with(model: os_orden_servicio, local: true) do |form| %>
-  <% if os_orden_servicio.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(os_orden_servicio.errors.count, "error") %> prohibited this os_orden_servicio from being saved:</h2>
 
-      <ul>
-      <% os_orden_servicio.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :os_orden_servicio_user_id %>
-  </div>
+
 
   <div class="field">
     <%= form.label :cliente_id %>
-    <%= form.text_field :cliente_id, id: :os_orden_servicio_cliente_id %>
+    <%= form.collection_select(:cliente_id, Cliente.all, :id, :nombre, options = {}, {:class => "form-control"})%>
   </div>
 
   <div class="field">
     <%= form.label :servicio_id %>
-    <%= form.text_field :servicio_id, id: :os_orden_servicio_servicio_id %>
+
+    <%= form.collection_select(:servicio_id, Os::Servicio.all, :id, :servicio, options = {}, {:class => "form-control"})%>
+
   </div>
 
   <div class="field">
     <%= form.label :equipo_id %>
-    <%= form.text_field :equipo_id, id: :os_orden_servicio_equipo_id %>
+
+    <%= form.collection_select(:equipo_id, Os::Equipo.all, :id, :n_serie, options = {}, {:class => "form-control"})%>
   </div>
 
   <div class="actions">

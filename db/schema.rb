@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190930040745) do
+ActiveRecord::Schema.define(version: 20191002002644) do
 
   create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "nombre"
@@ -21,14 +21,6 @@ ActiveRecord::Schema.define(version: 20190930040745) do
     t.boolean "activo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "ct_clientes", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string "nombre", limit: 50
-    t.string "telefono", limit: 50
-    t.string "direccion", limit: 50
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "ct_cuentas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -108,6 +100,14 @@ ActiveRecord::Schema.define(version: 20190930040745) do
     t.datetime "updated_at", null: false
     t.index ["cliente_id"], name: "index_os_orden_servicios_on_cliente_id"
     t.index ["user_id"], name: "index_os_orden_servicios_on_user_id"
+  end
+
+  create_table "os_servicios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "servicio"
+    t.decimal "costo", precision: 10
+    t.text "descripcion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "os_tipo_equipos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|

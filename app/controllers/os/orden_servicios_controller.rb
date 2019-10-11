@@ -24,7 +24,7 @@ class Os::OrdenServiciosController < ApplicationController
   # POST /os/orden_servicios
   # POST /os/orden_servicios.json
   def create
-    @os_orden_servicio = Os::OrdenServicio.new(os_orden_servicio_params)
+    @os_orden_servicio = current_user.OrdenServicios.new(os_orden_servicio_params)
 
     respond_to do |format|
       if @os_orden_servicio.save

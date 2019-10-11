@@ -1,32 +1,30 @@
 Rails.application.routes.draw do
 
+namespace :os do
+      resources :servicios
+      resources :tipo_equipos
+      resources :equipos
+      resources :orden_servicios
+  end
 
-  namespace :os do
-    resources :tipo_equipos
-  end
-  namespace :os do
-    resources :orden_servicios
-  end
-  namespace :os do
-    resources :equipos
-  end
-  namespace :os do
-    resources :servicios
-  end
   resources :modelos
   resources :marcas
-  resources :clientes
-  namespace :ct do
-    resources :cuentas
+  resources :clientes do
+    match 'orden_servicios',  to: 'clientes#orden_servicio', via: [:get]
+    match 'orden_servicios',  to: 'clientes#create_orden_servicio', via: [:post]
   end
+
+
   namespace :ct do
     resources :cuenta
   end
+
   namespace :ct do
-              resources :producto_umedidas
+            resources :producto_umedidas
             resources :producto_marcas
              resources :producto_categorias
                resources :producto_catalogos
+                 resources :cuentas
   end
 
 
