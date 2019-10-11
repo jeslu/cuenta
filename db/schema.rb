@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190930040745) do
+ActiveRecord::Schema.define(version: 20191011123849) do
 
   create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "nombre"
@@ -23,12 +23,12 @@ ActiveRecord::Schema.define(version: 20190930040745) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "ct_clientes", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string "nombre", limit: 50
-    t.string "telefono", limit: 50
-    t.string "direccion", limit: 50
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "ct_cuenta", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.bigint "cliente_id"
+    t.datetime "fecha"
+    t.boolean "activo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "ct_cuentas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -50,7 +50,6 @@ ActiveRecord::Schema.define(version: 20190930040745) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "user_id"
   end
 
   create_table "ct_producto_categorias", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -110,6 +109,14 @@ ActiveRecord::Schema.define(version: 20190930040745) do
     t.index ["user_id"], name: "index_os_orden_servicios_on_user_id"
   end
 
+  create_table "os_servicios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "servicio"
+    t.decimal "costo", precision: 10
+    t.text "descripcion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "os_tipo_equipos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "tipo"
     t.boolean "activo"
@@ -130,6 +137,11 @@ ActiveRecord::Schema.define(version: 20190930040745) do
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string "nombre"
+    t.integer "sign_in_count"
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
