@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20191002002644) do
+=======
+ActiveRecord::Schema.define(version: 20191011123849) do
+>>>>>>> e9d545f4a6dd2177445fbf6f00669604f57a122d
 
   create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "nombre"
@@ -23,6 +27,17 @@ ActiveRecord::Schema.define(version: 20191002002644) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
+=======
+  create_table "ct_cuenta", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.bigint "cliente_id"
+    t.datetime "fecha"
+    t.boolean "activo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+>>>>>>> e9d545f4a6dd2177445fbf6f00669604f57a122d
   create_table "ct_cuentas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.bigint "cliente_id"
     t.datetime "fecha"
@@ -42,7 +57,6 @@ ActiveRecord::Schema.define(version: 20191002002644) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "user_id"
   end
 
   create_table "ct_producto_categorias", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -130,6 +144,11 @@ ActiveRecord::Schema.define(version: 20191002002644) do
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string "nombre"
+    t.integer "sign_in_count"
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -1,59 +1,135 @@
 
 
-<body class="layout-default">
-  <section class="hero is-fullheigt  is-medium  ">
 
-        <div class="hero-body">
 
-          <div class="container">
 
-            <div class="columns is-centered"">
+<!doctype html>
+<html lang="es">
 
-              <article class="card is-rounded">
-              <center><h2>INICIO DE SECCION</h2></center>
-                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                <div class="card-content">
-                  <h1 class="title"><img src="<%= asset_path 'logo.png' %>"alt="logo" width="60">J&G App Web</h1>
 
-                  <p class="control has-icon">
 
-                    <input class="input" type="email" placeholder="Email" name="user[email]">
 
-                                    <span class="icon is-small is-left">
-                                      <i class="fas fa-envelope"></i>
-                                    </span>
-                  </p>
-                  <br>
-                  <p class="control has-icon">
 
-                    <input class="input" type="password" placeholder="Password" name="user[password]">
-                    <span class="icon is-small is-left">
-                      <i class="fas fa-lock"></i>
-                    </span>
-                  </p>
-                  <br>
-                  <% if devise_mapping.rememberable? %>
-                  <p class="control">
-                     <div class="field">
-                      <%= f.check_box :remember_me %>
-                      <%= f.label :remember_me %>
+
+    <!--
+Ejemplo de formulario de login con Bootstrap
+Basado en:
+  Plantilla inicial de Bootstrap 4
+  @author parzibyte
+  Visita: parzibyte.me/blog
+-->
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1,
+            shrink-to-fit=no">
+        <meta name="description" content="Formulario de login con Bootstrap">
+        <meta name="author" content="Parzibyte">
+        <title>Formulario de login con Bootstrap</title>
+        <!-- Cargar el CSS de Boostrap-->
+
+    </head>
+
+    <body>
+<!---login -->
+
+
+
+<br><br><br><br>
+
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center text-white mb-4">Bootstrap 4</h2>
+
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+
+                    <!-- form card login -->
+                    <div class="card rounded-0">
+
+                        <div class="">
+                            <h3 class="mb-0">
+                                                  <img  class="img-fluid mx-auto d-block rounded" src="<%= asset_path 'CodeWeb_logo.jpg' %>"alt="400" width="300">
+</h3>
+                        </div>
+                        <div class="card-body">
+                              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+                                <div class="form-group">
+
+                                    <label for="uname1">Correo</label>
+
+                                    <input type="email" class="form-control form-control-lg rounded-0" name="user[email]" id="correo" placeholder="Correo electrónico">
+
+                                    <div class="invalid-feedback">Oops, you missed this one.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Contraseña</label>
+                                    <input type="password" class="form-control form-control-lg rounded-0" name="user[password]" id="pwd1" placeholder="Contraseña">
+                                    <div class="invalid-feedback">Enter your password too!</div>
+                                </div>
+                                <% if devise_mapping.rememberable? %>
+                 <p class="control">  <div class="field">
+                     <%= f.check_box :remember_me %>
+                     <%= f.label :remember_me %>
+                   </div>
+                   <% end %>
+
+                                <div class="form-group">
+
+
+                                      <button type="submit" class="btn btn-primary btn-large btn-block" id="btnLogin">Ingresar</button>
+
+                                </div>
+
+
+
+                              <%end%>
+                               <%= render "devise/shared/links" %>
+                        </div>
+                        <!--/card-block-->
                     </div>
-                    <% end %>
-                  <p class="control">
-                    <button class="button is-info is-medium is-fullwidth">
-                      <i class="fa fa-user"></i>
-                      Ingresar
-                    </button>
-                  </p>
+                    <!-- /form card login -->
 
                 </div>
-                    <% end %>
-                    <center>
-                        <%= render "devise/shared/links" %></center>
-              </article>
+
 
             </div>
-          </div>
+            <!--/row-->
+
+        </div>
+        <!--/col-->
     </div>
-  </section>
-</body>
+    <!--/row-->
+</div>
+<!--/container-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+
+</html>
+
+<style>
+
+
+</style>
