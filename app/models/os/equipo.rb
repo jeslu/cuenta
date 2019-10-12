@@ -5,4 +5,5 @@ class Os::Equipo < ApplicationRecord
   belongs_to :TipoEquipo, :class_name => "Os::TipoEquipo", :foreign_key => "tipo_equipo_id"
 
   has_many :OrdenServicios, :class_name => "Os::OrdenServicio", :foreign_key => "equipo_id"
+
 end
