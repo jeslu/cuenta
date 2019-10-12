@@ -39,10 +39,10 @@ class ClientesController < ApplicationController
   end
   ####### CREATE ORDEN SERVICIO #################
   def create_orden_servicio
-      @os_orden_servicio = @client.current_user.OrdenServicios.new(os_orden_servicio_params)
-
+  # 
+      @os_orden_servicios = @client.OrdenServicios.new(os_orden_servicio_params)
       respond_to do |format|
-        if   @os_orden_servicio.save
+        if   @os_orden_servicios.save
           format.html { redirect_to  "#{@URL_DOMAIN}/clientes/#{@client.id}/", notice: 'Orden servicio was successfully created.' }
           format.json { render :show, status: :created, location: @os_orden_servicio }
         else

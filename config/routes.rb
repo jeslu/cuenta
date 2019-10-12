@@ -10,8 +10,8 @@ namespace :os do
   resources :modelos
   resources :marcas
   resources :clientes do
-    match 'orden_servicios',  to: 'clientes#orden_servicio', via: [:get]
-    match 'orden_servicios',  to: 'clientes#create_orden_servicio', via: [:post]
+    #match 'orden_servicios',  to: 'clientes#orden_servicios', via: [:get]
+    #match 'orden_servicios',  to: 'clientes#create_orden_servicio', via: [:post]
   end
 
 

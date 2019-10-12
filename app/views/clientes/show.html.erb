@@ -4,7 +4,7 @@
   <div class="card-body">
     <h5 class="card-title">  <%= @cliente.nombre %> <%= @cliente.apellido_p %> <%= @cliente.apellido_m %></h5>
     <h6 class="card-subtitle mb-2 text-muted">Cliente</h6>
-    <h7 class="card-title">Direccion: <a href="#" class="card-link">  <%= @cliente.direccion %></a></h7>
+    <h7 class="card-title"><strong>Direccion:</strong> <a href="#" class="card-link">  <%= @cliente.direccion %></a></h7>
     <h7 class="card-title">Telefono: <a href="#" class="card-link">  <%= @cliente.telefono %></a></h7>
      <p class="card-text"><small class="text-muted"><%= @cliente.updated_at.to_date %></small></p>
     <a href="#" class="card-link"><%= link_to 'Actualizar', edit_cliente_path(@cliente) %> </a>
@@ -25,8 +25,8 @@
 
 
 <div class="field">
-  <%= form.label :cliente_id%>
-  <%= form.collection_select(:cliente_id, Cliente.all, :id, :nombre, options = {}, {:class => "form-control"})%>
+  <%= form.label :user_id%>
+  <%= form.collection_select(:user_id, User.all, :id, :nombre, options = {}, {:class => "form-control"})%>
 
 </div>
 

@@ -12,5 +12,6 @@ class User < ApplicationRecord
   # Explicitly do not validate
   do_not_validate_attachment_file_type :avatar
 has_many :OrdenServicios, :class_name => "Os::OrdenServicio", :foreign_key => "user_id"
+has_many :Clientes, :through => :OrdenServicios
 has_many :Catalogos, :class_name => "Ct::ProductoCatalogo" , :foreign_key => "user_id"
 end

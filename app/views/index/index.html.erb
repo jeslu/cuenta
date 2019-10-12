@@ -6,13 +6,26 @@
   </head>
   <body>
     <br>
-    <div class="columns is-mobile">
-  <div class="column"><a class="button is-primary is-rounded"><%= link_to 'Orden de Servicio', os_orden_servicios_path, :class => "button is-primary is-rounded" %></a></div>
+    <div class="container-fluid">
+      <div class="row">
+    <div class="col-md-6">
+      <div class="columns is-mobile">
+      <div class="column">
+        <a class="badge badge-pill badge-primary"><%= link_to 'Orden de Servicio', os_orden_servicios_path, :class => " badge-pill btn-outline-primary " %></a></div>
+    </div>
+  </div>
+    <div class="col-md-6">
+      <div class="columns is-mobile">
+      <div class="column">
+        <a class="button is-primary is-rounded"><%= link_to 'Cuentas', ct_cuentas_path, :class => "btn btn-outline-primary rounded" %></a></div>
+    </div>
+  </div>
+  </div>
 </div>
 
-<div class="alert alert-primary" role="alert">
-  A simple primary alert—check it out!
-</div>
+
+
+
 
 
 
