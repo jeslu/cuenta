@@ -10,27 +10,31 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+<div class="form-row">
+  <div class="col">
     <%= form.label :n_serie %>
-    <%= form.text_field :n_serie, id: :os_equipo_n_serie %>
+    <%= form.text_field :n_serie, id: :os_equipo_n_serie, :class => "form-control" %>
+
   </div>
 
-  <div class="field">
+  <div class="col">
     <%= form.label :marca_id %>
-    <%= form.text_field :marca_id, id: :os_equipo_marca_id %>
+    <%= form.collection_select(:marca_id, Marca.all, :id, :marca, options = {}, {:class => "form-control"}) %>
   </div>
-
-  <div class="field">
+    </div>
+<div class="form-row">
+  <div class="col">
     <%= form.label :modelo_id %>
-    <%= form.text_field :modelo_id, id: :os_equipo_modelo_id %>
+    <%= form.collection_select(:modelo_id, Modelo.all, :id, :modelo, options = {},{:class => "form-control"})%>
   </div>
 
-  <div class="field">
+  <div class="col">
     <%= form.label :tipo_equipo_id %>
-    <%= form.text_field :tipo_equipo_id, id: :os_equipo_tipo_equipo_id %>
-  </div>
 
+    <%= form.collection_select(:tipo_equipo_id, Os::TipoEquipo.all, :id, :tipo, options = {}, {:class => "form-control"})%>
+  </div>
+</div>
+<br>
   <div class="actions">
     <%= form.submit %>
   </div>
