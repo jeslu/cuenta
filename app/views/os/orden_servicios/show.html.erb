@@ -5,66 +5,20 @@
   <div class="col-md-6"> <%=hg_card_cliente(@os_orden_servicio.Cliente) %>
   <%=hg_card_equipos(@os_orden_servicio.Equipo) %></div>
   <div class="col-md-6">
+
+
   <div class="card">
-  <h5 class="card-header">N# Orden de Servicio:   <%= @os_orden_servicio.id %> </h5>
+  <h5 class="card-header"><strong>N# Orden de Servicio:</strong>   <%= @os_orden_servicio.id %> </h5>
   <div class="card-body">
-    <h5 class="card-title"><strong>Atendido por:</strong>  <%= @os_orden_servicio.User.nombre %> </h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <h7 class="card-title"><strong>Atendido por:</strong>  <%= @os_orden_servicio.User.nombre %> </h7>
+    <p class='card-text'>Fecha: <small class='text-muted'>   <%= @os_orden_servicio.created_at.to_date %></small></p>
   </div>
 </div>
+<%=hg_card_servicios(@os_orden_servicio.Servicio) %></div>
 </div>
-</div>
 
 
-<p>
-  <strong>User:</strong>
-  <%= @os_orden_servicio.User.nombre %>
-</p>
-
-<p>
-  <strong>Cliente:</strong>
-  <%= @os_orden_servicio.Cliente.nombre %>
-</p>
-
-<p>
-  <strong>Servicio:</strong>
-  <%= @os_orden_servicio.Servicio.servicio %>
-</p>
-
-<p>
-  <strong>Equipo:</strong>
-  <%= @os_orden_servicio.Equipo.n_serie %>
-</p>
-<div class="card mb-3">
-  <img class="card-img-top" src="..." alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">
-      <p>
-        <strong>User:</strong>
-        <%= @os_orden_servicio.User.nombre %>
-      </p>
-
-      <p>
-        <strong>Cliente:</strong>
-        <%= @os_orden_servicio.Cliente.nombre %>
-        <%= @os_orden_servicio.Cliente.telefono %>
-      </p>
-
-      <p>
-        <strong>Servicio:</strong>
-        <%= @os_orden_servicio.Servicio.servicio %>
-      </p>
-
-      <p>
-        <strong>Equipo:</strong>
-        <%= @os_orden_servicio.Equipo.n_serie %>
-      </p>
-    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-  </div>
 
 
-  </div>
 <%= link_to 'Edit', edit_os_orden_servicio_path(@os_orden_servicio) %> |
 <%= link_to 'Back', os_orden_servicios_path %>

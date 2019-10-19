@@ -5,6 +5,7 @@ class Os::OrdenServiciosController < ApplicationController
   # GET /os/orden_servicios.json
   def index
     @os_orden_servicios = Os::OrdenServicio.all
+    @os_orden_servicio = Os::OrdenServicio.new
   end
 
   # GET /os/orden_servicios/1
@@ -14,7 +15,7 @@ class Os::OrdenServiciosController < ApplicationController
 
   # GET /os/orden_servicios/new
   def new
-    @os_orden_servicio = Os::OrdenServicio.new
+    #@os_orden_servicio = Os::OrdenServicio.new
   end
 
   # GET /os/orden_servicios/1/edit

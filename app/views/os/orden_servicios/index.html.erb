@@ -1,8 +1,63 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Os Orden Servicios</h1>
 
-<table>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  + Nueva Orden de Servicio
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Nueva Orden de Servicio</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <%= form_with(model: @os_orden_servicio, local: true) do |form| %>
+
+
+          <div class="field">
+            <%= form.label :cliente_id %>
+            <%= form.collection_select(:cliente_id, Cliente.all, :id, :nombre, options = {}, {:class => "form-control"})%>
+          </div>
+
+          <div class="field">
+            <%= form.label :servicio_id %>
+
+            <%= form.collection_select(:servicio_id, Os::Servicio.all, :id, :servicio, options = {}, {:class => "form-control"})%>
+
+          </div>
+
+          <div class="field">
+            <%= form.label :equipo_id %>
+
+            <%= form.collection_select(:equipo_id, Os::Equipo.all, :id, :n_serie, options = {}, {:class => "form-control"})%>
+          </div>
+
+          <div class="actions">
+            <%= form.submit %>
+          </div>
+        <% end %>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<h1>Orden Servicios</h1>
+<div class="table-responsive-sm">
+<table class="table">
   <thead>
     <tr>
       <th>User</th>
@@ -27,7 +82,7 @@
     <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
 
 <%= link_to 'New Os Orden Servicio', new_os_orden_servicio_path %>
