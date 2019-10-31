@@ -2,11 +2,84 @@
 
 
 <div class="row">
-  <div class="col-md-6"> <%=hg_card_cliente(@os_orden_servicio.Cliente) %>
-  <%=hg_card_equipos(@os_orden_servicio.Equipo) %></div>
   <div class="col-md-6">
+    <%=hg_card_cliente(@os_orden_servicio.Cliente) %>
+
+    <div class="card">
+    <h5 class="card-header"><strong>Equipos:</strong>  </h5>
+    <div class="card-body">
+
+      <%= form_with(model: Os::Equipo.new, local: true, url: "#{@URL_DOMAIN}/os/orden_servicios/#{@os_orden_servicio.id}/equipos") do |form| %>
 
 
+        <div class="field">
+          <%= form.label :n_serie %>
+          <%= form.text_field :n_serie, id: :os_equipo_n_serie %>
+        </div>
+
+        <div class="field">
+          <%= form.label :marca_id %>
+
+          <%= form.collection_select(:marca_id, Marca.all, :id, :marca, options = {}, {:class => "form-control"})%>
+        </div>
+
+
+        <div class="field">
+          <%= form.label :modelo_id %>
+
+          <%= form.collection_select(:modelo_id, Modelo.all, :id, :modelo, options = {}, {:class => "form-control"})%>
+        </div>
+
+
+        <div class="field">
+          <%= form.label :tipo_equipo_id %>
+
+            <%= form.collection_select(:tipo_equipo_id, Os::TipoEquipo.all, :id, :tipo, options = {}, {:class => "form-control"})%>
+
+
+        </div>
+
+
+
+        <div class="actions">
+          <%= form.submit %>
+        </div>
+      <% end %>
+
+
+      <p class='card-text'>Fecha: <small class='text-muted'></small></p>
+    </div>
+    <div class="table-responsive">
+  <table class="table table-dark">
+
+  <caption>Lista de Equipos</caption>
+  <thead>
+    <tr>
+      <th scope="col">n# serie</th>
+      <th scope="col">Equipo</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Modelo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+
+
+  </tbody>
+
+  </table>
+</div>
+  </div>
+
+
+
+</div>
+<div class="col-md-6">
   <div class="card">
   <h5 class="card-header"><strong>N# Orden de Servicio:</strong>   <%= @os_orden_servicio.id %> </h5>
   <div class="card-body">
@@ -14,7 +87,10 @@
     <p class='card-text'>Fecha: <small class='text-muted'>   <%= @os_orden_servicio.created_at.to_date %></small></p>
   </div>
 </div>
-<%=hg_card_servicios(@os_orden_servicio.Servicio) %></div>
+  lkbfdljbdf
+  <%=hg_card_servicios(@os_orden_servicio.Servicio) %>
+
+</div>
 </div>
 
 

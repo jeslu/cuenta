@@ -5,9 +5,11 @@ one:
   marca: one
   modelo: one
   tipo_equipo_id: 
+  orden_servicio_id: 
 
 two:
   n_serie: MyString
   marca: two
   modelo: two
   tipo_equipo_id: 
+  orden_servicio_id: 

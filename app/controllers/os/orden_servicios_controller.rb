@@ -11,6 +11,7 @@ class Os::OrdenServiciosController < ApplicationController
   # GET /os/orden_servicios/1
   # GET /os/orden_servicios/1.json
   def show
+
   end
 
   # GET /os/orden_servicios/new
@@ -65,11 +66,11 @@ class Os::OrdenServiciosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_os_orden_servicio
-      @os_orden_servicio = Os::OrdenServicio.find(params[:id])
+ @os_orden_servicio = Os::OrdenServicio.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def os_orden_servicio_params
-      params.require(:os_orden_servicio).permit(:user_id, :cliente_id, :servicio_id, :equipo_id)
+      params.require(:os_orden_servicio).permit(:user_id, :cliente_id, :servicio_id)
     end
 end

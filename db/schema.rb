@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191013122932) do
+ActiveRecord::Schema.define(version: 20191025055437) do
 
   create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "nombre"
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 20191013122932) do
     t.bigint "marca_id"
     t.bigint "modelo_id"
     t.bigint "tipo_equipo_id"
+    t.bigint "orden_servicio_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["marca_id"], name: "index_os_equipos_on_marca_id"
@@ -96,6 +97,7 @@ ActiveRecord::Schema.define(version: 20191013122932) do
     t.bigint "cliente_id"
     t.bigint "servicio_id"
     t.bigint "equipo_id"
+    t.boolean "reparacion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cliente_id"], name: "index_os_orden_servicios_on_cliente_id"

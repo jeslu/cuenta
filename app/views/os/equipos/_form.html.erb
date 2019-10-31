@@ -1,40 +1,40 @@
 <%= form_with(model: os_equipo, local: true) do |form| %>
-  <% if os_equipo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(os_equipo.errors.count, "error") %> prohibited this os_equipo from being saved:</h2>
+  
 
-      <ul>
-      <% os_equipo.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-<div class="form-row">
-  <div class="col">
+  <div class="field">
     <%= form.label :n_serie %>
-    <%= form.text_field :n_serie, id: :os_equipo_n_serie, :class => "form-control" %>
-
+    <%= form.text_field :n_serie, id: :os_equipo_n_serie %>
   </div>
 
-  <div class="col">
+  <div class="field">
     <%= form.label :marca_id %>
-    <%= form.collection_select(:marca_id, Marca.all, :id, :marca, options = {}, {:class => "form-control"}) %>
-  </div>
-    </div>
-<div class="form-row">
-  <div class="col">
-    <%= form.label :modelo_id %>
-    <%= form.collection_select(:modelo_id, Modelo.all, :id, :modelo, options = {},{:class => "form-control"})%>
+
+    <%= form.collection_select(:marca_id, Marca.all, :id, :marca, options = {}, {:class => "form-control"})%>
   </div>
 
-  <div class="col">
+
+  <div class="field">
+    <%= form.label :modelo_id %>
+
+    <%= form.collection_select(:modelo_id, Modelo.all, :id, :modelo, options = {}, {:class => "form-control"})%>
+  </div>
+
+
+  <div class="field">
     <%= form.label :tipo_equipo_id %>
 
-    <%= form.collection_select(:tipo_equipo_id, Os::TipoEquipo.all, :id, :tipo, options = {}, {:class => "form-control"})%>
+      <%= form.collection_select(:tipo_equipo_id, Os::TipoEquipo.all, :id, :tipo, options = {}, {:class => "form-control"})%>
+
+
   </div>
-</div>
-<br>
+
+  <div class="field">
+    <%= form.label :orden_servicio_id %>
+
+    <%= form.collection_select(:orden_servicio_id, Os::OrdenServicio.all, :id, :id, options = {}, {:class => "form-control"})%>
+
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

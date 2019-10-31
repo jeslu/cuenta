@@ -1,37 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-
-<div class="card">
-  <h5 class="card-header">EQUIPO</h5>
-  <div class="card-body">
-    <h5 class="card-title">computadoras..</h5>
-    <p class="card-text">
-      <p>
-
-      <strong>N serie:</strong>
-      <%= @os_equipo.n_serie %>
-    </p>
-
-    <p>
-      <strong>Marca:</strong>
-      <%= @os_equipo.Marca.marca %>
-    </p>
-
-    <p>
-      <strong>Modelo:</strong>
-      <%= @os_equipo.Modelo.modelo %>
-    </p>
-    <p>
-      <strong>Tipo equipo:</strong>
-      <%= @os_equipo.TipoEquipo.tipo %>
-    </p>
+<p>
+  <strong>N serie:</strong>
+  <%= @os_equipo.n_serie %>
 </p>
 
-    <a href="#" class="btn btn-primary">Agregar mas equipos</a>
-  </div>
-</div>
+<p>
+  <strong>Marca:</strong>
+  <%= @os_equipo.Marca.marca %>
+</p>
 
+<p>
+  <strong>Modelo:</strong>
+  <%= @os_equipo.Modelo.modelo %>
+</p>
 
+<p>
+  <strong>Tipo equipo:</strong>
+  <%= @os_equipo.tipo_equipo_id %>
+</p>
+
+<p>
+  <strong>Orden servicio:</strong>
+  <%= @os_equipo.orden_servicio_id %>
+</p>
 
 <%= link_to 'Edit', edit_os_equipo_path(@os_equipo) %> |
 <%= link_to 'Back', os_equipos_path %>

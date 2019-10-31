@@ -17,7 +17,7 @@ class Os::EquiposControllerTest < ActionDispatch::IntegrationTest
 
   test "should create os_equipo" do
     assert_difference('Os::Equipo.count') do
-      post os_equipos_url, params: { os_equipo: { marca_id: @os_equipo.marca_id, modelo_id: @os_equipo.modelo_id, n_serie: @os_equipo.n_serie, tipo_equipo_id: @os_equipo.tipo_equipo_id } }
+      post os_equipos_url, params: { os_equipo: { marca_id: @os_equipo.marca_id, modelo_id: @os_equipo.modelo_id, n_serie: @os_equipo.n_serie, orden_servicio_id: @os_equipo.orden_servicio_id, tipo_equipo_id: @os_equipo.tipo_equipo_id } }
     end
 
     assert_redirected_to os_equipo_url(Os::Equipo.last)
@@ -34,7 +34,7 @@ class Os::EquiposControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update os_equipo" do
-    patch os_equipo_url(@os_equipo), params: { os_equipo: { marca_id: @os_equipo.marca_id, modelo_id: @os_equipo.modelo_id, n_serie: @os_equipo.n_serie, tipo_equipo_id: @os_equipo.tipo_equipo_id } }
+    patch os_equipo_url(@os_equipo), params: { os_equipo: { marca_id: @os_equipo.marca_id, modelo_id: @os_equipo.modelo_id, n_serie: @os_equipo.n_serie, orden_servicio_id: @os_equipo.orden_servicio_id, tipo_equipo_id: @os_equipo.tipo_equipo_id } }
     assert_redirected_to os_equipo_url(@os_equipo)
   end
 
