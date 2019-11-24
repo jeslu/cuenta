@@ -19,6 +19,7 @@ class Os::ServiciosController < ApplicationController
 
   # GET /os/servicios/1/edit
   def edit
+
   end
 
   # POST /os/servicios
@@ -28,10 +29,10 @@ class Os::ServiciosController < ApplicationController
 
     respond_to do |format|
       if @os_servicio.save
-        format.html { redirect_to @os_servicio, notice: 'Servicio was successfully created.' }
+        format.html { redirect_to @os_servicio, notice: 'Servicio fue creado exitosamente.' }
         format.json { render :show, status: :created, location: @os_servicio }
       else
-        format.html { render :new }
+        format.html { render :new, notice: 'No fue creado con exito.' }
         format.json { render json: @os_servicio.errors, status: :unprocessable_entity }
       end
     end
@@ -62,6 +63,7 @@ class Os::ServiciosController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_os_servicio
       @os_servicio = Os::Servicio.find(params[:id])
@@ -69,6 +71,6 @@ class Os::ServiciosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def os_servicio_params
-      params.require(:os_servicio).permit(:servicio, :costo, :descripcion)
+      params.require(:os_servicio).permit(:servicio, :costo, :descripcion, :orden_servicio_id)
     end
 end

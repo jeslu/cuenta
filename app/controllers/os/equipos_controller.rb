@@ -37,7 +37,7 @@ class Os::EquiposController < ApplicationController
         format.html { redirect_to "#{@URL_DOMAIN}/os/orden_servicios/#{@orden_servicio.id}", notice: 'Equipo was successfully created.' }
         format.json { render :show, status: :created, location: @os_equipo }
       else
-        format.html { redirect_to "#{@URL_DOMAIN}/os/orden_servicios/#{@orden_servicio.id}", notice: 'no se pudo' }
+        format.html { redirect_to "#{@URL_DOMAIN}/os/orden_servicios/#{@orden_servicio.id}", notice: 'No fue creado con exito' }
         format.json { render json: @os_equipo.errors, status: :unprocessable_entity }
       end
     end

@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
 
 
+
 namespace :os do
       resources :servicios
       resources :tipo_equipos
       resources :equipos
+      resources :servicio_ordens
+
       resources :orden_servicios do
           resources :equipos
-            resources :servicios
+          resources :servicio_ordens  
       end
   end
 
@@ -31,8 +34,8 @@ namespace :os do
                  resources :cuentas
   end
 
+root :to => 'index#index'
 
-  root to: 'index#index'
   devise_for :users
   #get 'index/index'
 

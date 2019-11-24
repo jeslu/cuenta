@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Orden servicio:</strong>
+  <%= @os_servicio_orden.orden_servicio_id %>
+</p>
+
+<p>
+  <strong>Servicio:</strong>
+  <%= @os_servicio_orden.servicio_id %>
+</p>
+
+<%= link_to 'Edit', edit_os_servicio_orden_path(@os_servicio_orden) %> |
+<%= link_to 'Back', os_servicio_ordens_path %>

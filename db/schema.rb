@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191025055437) do
+ActiveRecord::Schema.define(version: 20191115012723) do
 
   create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "nombre"
@@ -104,10 +104,18 @@ ActiveRecord::Schema.define(version: 20191025055437) do
     t.index ["user_id"], name: "index_os_orden_servicios_on_user_id"
   end
 
+  create_table "os_servicio_ordens", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.bigint "orden_servicio_id"
+    t.bigint "servicio_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "os_servicios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "servicio"
     t.decimal "costo", precision: 10
     t.text "descripcion"
+    t.bigint "oreden_servicio_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

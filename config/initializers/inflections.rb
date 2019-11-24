@@ -37,6 +37,7 @@
    inflect.irregular 'os_tipo_equipo','os_tipo_equipos'
    inflect.irregular 'os_servicio','os_servicios'
    inflect.irregular 'os_orden_servicio','os_orden_servicios'
+   inflect.irregular 'servicio_orden', 'servicio_ordens'
 
 
  end

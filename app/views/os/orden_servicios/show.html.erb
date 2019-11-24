@@ -9,76 +9,105 @@
     <h5 class="card-header"><strong>Equipos:</strong>  </h5>
     <div class="card-body">
 
-      <%= form_with(model: Os::Equipo.new, local: true, url: "#{@URL_DOMAIN}/os/orden_servicios/#{@os_orden_servicio.id}/equipos") do |form| %>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Nueva Orden de Servicio</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <%= form_with(model: Os::Equipo.new, local: true, url: "#{@URL_DOMAIN}/os/orden_servicios/#{@os_orden_servicio.id}/equipos") do |form| %>
 
 
-        <div class="field">
-          <%= form.label :n_serie %>
-          <%= form.text_field :n_serie, id: :os_equipo_n_serie %>
+                <div class="field">
+                  <%= form.label :n_serie %>
+                  <%= form.text_field :n_serie, id: :os_equipo_n_serie %>
+                </div>
+
+                <div class="field">
+                  <%= form.label :marca_id %>
+
+                  <%= form.collection_select(:marca_id, Marca.all, :id, :marca, options = {}, {:class => "form-control"})%>
+                </div>
+
+
+                <div class="field">
+                  <%= form.label :modelo_id %>
+
+                  <%= form.collection_select(:modelo_id, Modelo.all, :id, :modelo, options = {}, {:class => "form-control"})%>
+                </div>
+
+
+                <div class="field">
+                  <%= form.label :tipo_equipo_id %>
+
+                    <%= form.collection_select(:tipo_equipo_id, Os::TipoEquipo.all, :id, :tipo, options = {}, {:class => "form-control"})%>
+
+
+                </div>
+
+
+
+                <div class="actions">
+                  <%= form.submit %>
+                </div>
+              <% end %>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary">Guardar</button>
+            </div>
+          </div>
         </div>
+      </div>
 
-        <div class="field">
-          <%= form.label :marca_id %>
+      <div class="table-responsive">
+    <table class="table">
 
-          <%= form.collection_select(:marca_id, Marca.all, :id, :marca, options = {}, {:class => "form-control"})%>
-        </div>
+    <caption>Lista de Equipos</caption>
+    <thead>
+      <tr>
+        <th scope="col">n# serie</th>
+        <th scope="col">Equipo</th>
+        <th scope="col">Marca</th>
+        <th scope="col">Modelo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @os_orden_servicio.Equipos.each do |equipo|%>
+      <tr>
+        <th scope="row"><%=equipo.n_serie%></th>
+        <td><%=equipo.tipo_equipo_id%></td>
+        <td><%=equipo.marca_id%></td>
+        <td><%=equipo.modelo_id%></td>
+      </tr>
+  <%end%>
 
+    </tbody>
 
-        <div class="field">
-          <%= form.label :modelo_id %>
+    </table>
 
-          <%= form.collection_select(:modelo_id, Modelo.all, :id, :modelo, options = {}, {:class => "form-control"})%>
-        </div>
-
-
-        <div class="field">
-          <%= form.label :tipo_equipo_id %>
-
-            <%= form.collection_select(:tipo_equipo_id, Os::TipoEquipo.all, :id, :tipo, options = {}, {:class => "form-control"})%>
-
-
-        </div>
-
-
-
-        <div class="actions">
-          <%= form.submit %>
-        </div>
-      <% end %>
-
-
-      <p class='card-text'>Fecha: <small class='text-muted'></small></p>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+            + Agregar Equipo
+          </button>
+     </div>
     </div>
-    <div class="table-responsive">
-  <table class="table table-dark">
-
-  <caption>Lista de Equipos</caption>
-  <thead>
-    <tr>
-      <th scope="col">n# serie</th>
-      <th scope="col">Equipo</th>
-      <th scope="col">Marca</th>
-      <th scope="col">Modelo</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
 
 
-  </tbody>
-
-  </table>
-</div>
   </div>
 
 
 
 </div>
+
+
 <div class="col-md-6">
   <div class="card">
   <h5 class="card-header"><strong>N# Orden de Servicio:</strong>   <%= @os_orden_servicio.id %> </h5>
@@ -87,12 +116,94 @@
     <p class='card-text'>Fecha: <small class='text-muted'>   <%= @os_orden_servicio.created_at.to_date %></small></p>
   </div>
 </div>
-  lkbfdljbdf
-  <%=hg_card_servicios(@os_orden_servicio.Servicio) %>
+<br>
+<br>
+
+<div class="card">
+  <h5><div class="card-header">
+    <strong>Servicio:</strong>
+  </div></h5>
+  <div class="card-body">
+
+
+    <div class="table-responsive">
+  <table class="table">
+    <caption>Lista of users</caption>
+ <thead>
+
+   <tr>
+     <th scope="col">#</th>
+     <th scope="col">Servicio</th>
+     <th scope="col">Descripcion</th>
+     <th scope="col"></th>
+   </tr>
+
+ </thead>
+ <tbody>
+    <% @os_orden_servicio.ServicioOrden.each do |so|%>
+   <tr>
+     <th scope="row"><%=so.id%></th>
+     <td><%=so.servicio_id%></td>
+     <td><%=so.orden_servicio_id%></td>
+     <td></td>
+   </tr>
+   <%end%>
+
+ </tbody>
+  </table>
+  <!-- Button trigger modal de servicio -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#so">
+    Agregar servicio
+  </button>
+</div>
+    <p class="card-text"></p>
+
+  </div>
+</div>
+
+
 
 </div>
 </div>
 
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="so" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+        <%= form_with(model: Os::ServicioOrden.new, local: true, url: "#{@URL_DOMAIN}/os/orden_servicios/#{@os_orden_servicio.id}/servicio_ordens") do |form| %>
+        <div class="field">
+          <%= form.label :servicio_id %>
+
+          <%= form.collection_select(:servicio_id, Os::Servicio.all, :id, :servicio, options = {}, {:class => "form-control"})%>
+
+        </div>
+        <div class="actions">
+          <%= form.submit %>
+        </div>
+          <%end%>
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 

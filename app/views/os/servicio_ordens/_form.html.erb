@@ -1,0 +1,27 @@
+<%= form_with(model: os_servicio_orden, local: true) do |form| %>
+  <% if os_servicio_orden.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(os_servicio_orden.errors.count, "error") %> prohibited this os_servicio_orden from being saved:</h2>
+
+      <ul>
+      <% os_servicio_orden.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :orden_servicio_id %>
+    <%= form.collection_select(:orden_servicio_id, Os::OrdenServicio.all, :id, :id, options = {}, {:class => "form-control"})%>
+  </div>
+
+  <div class="field">
+    <%= form.label :servicio_id %>
+    <%= form.collection_select(:servicio_id, Os::Servicio.all, :id, :servicio, options = {}, {:class => "form-control"})%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
