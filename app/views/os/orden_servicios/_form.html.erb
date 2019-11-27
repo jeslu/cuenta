@@ -8,18 +8,9 @@
     <%= form.collection_select(:cliente_id, Cliente.all, :id, :nombre, options = {}, {:class => "form-control"})%>
   </div>
 
-  <div class="field">
-    <%= form.label :servicio_id %>
 
-    <%= form.collection_select(:servicio_id, Os::Servicio.all, :id, :servicio, options = {}, {:class => "form-control"})%>
 
-  </div>
 
-  <div class="field">
-    <%= form.label :equipo_id %>
-
-    <%= form.collection_select(:equipo_id, Os::Equipo.all, :id, :n_serie, options = {}, {:class => "form-control"})%>
-  </div>
 
   <div class="actions">
     <%= form.submit %>

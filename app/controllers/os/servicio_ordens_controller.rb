@@ -6,6 +6,7 @@ class Os::ServicioOrdensController < ApplicationController
   # GET /os/servicio_ordens.json
   def index
     @os_servicio_ordens = Os::ServicioOrden.all
+
   end
 
   # GET /os/servicio_ordens/1
@@ -29,7 +30,7 @@ class Os::ServicioOrdensController < ApplicationController
     #@os_servicio_orden = Os::ServicioOrden.new(os_servicio_orden_params)
 
     respond_to do |format|
-      if @orden_servicio.ServicioOrden << Os::ServicioOrden.new(os_servicio_orden_params)
+      if @orden_servicio.ServicioOrdens << Os::ServicioOrden.new(os_servicio_orden_params)
         format.html { redirect_to "#{@URL_DOMAIN}/os/orden_servicios/#{@orden_servicio.id}", notice: 'Servicio orden was successfully created.' }
         format.json { render :show, status: :created, location: @os_servicio_orden }
       else

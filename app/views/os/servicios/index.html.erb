@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<h1>Total <%= number_to_currency( @os_servicios.sum("costo")) %> </h1>
 <h1>Os Servicios</h1>
 <div class="table-responsive-sm">
   <table class="table">

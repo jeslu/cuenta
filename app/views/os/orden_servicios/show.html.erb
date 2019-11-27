@@ -83,9 +83,9 @@
       <% @os_orden_servicio.Equipos.each do |equipo|%>
       <tr>
         <th scope="row"><%=equipo.n_serie%></th>
-        <td><%=equipo.tipo_equipo_id%></td>
-        <td><%=equipo.marca_id%></td>
-        <td><%=equipo.modelo_id%></td>
+        <td><%=equipo.TipoEquipo.tipo%></td>
+        <td><%=equipo.Marca.marca%></td>
+        <td><%=equipo.Modelo.modelo%></td>
       </tr>
   <%end%>
 
@@ -128,29 +128,30 @@
 
     <div class="table-responsive">
   <table class="table">
-    <caption>Lista of users</caption>
+    <caption>Lista of servicio</caption>
  <thead>
 
    <tr>
-     <th scope="col">#</th>
+
      <th scope="col">Servicio</th>
      <th scope="col">Descripcion</th>
-     <th scope="col"></th>
+     <th scope="col">Costo</th>
    </tr>
 
  </thead>
  <tbody>
-    <% @os_orden_servicio.ServicioOrden.each do |so|%>
+    <% @os_orden_servicio.ServicioOrdens.each do |so|%>
    <tr>
-     <th scope="row"><%=so.id%></th>
-     <td><%=so.servicio_id%></td>
-     <td><%=so.orden_servicio_id%></td>
-     <td></td>
+
+     <td><%=so.Servicio.servicio%></td>
+     <td><%=so.Servicio.descripcion%></td>
+     <td><%=number_to_currency(so.Servicio.costo)%></td>
    </tr>
    <%end%>
 
  </tbody>
   </table>
+  <h1>Total <%= number_to_currency( @os_orden_servicio.ServicioOrdens.count("servicio_id")) %> </h1>
   <!-- Button trigger modal de servicio -->
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#so">
     Agregar servicio
