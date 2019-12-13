@@ -39,6 +39,7 @@ gem 'devise'
 gem "paperclip", "~> 6.0.0"
 gem 'unicorn'
 gem 'nokogiri'
+gem 'annotate'
 
 
 group :development, :test do

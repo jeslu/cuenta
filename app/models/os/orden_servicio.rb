@@ -2,7 +2,16 @@ class Os::OrdenServicio < ApplicationRecord
   self.table_name = "os_orden_servicios"
   belongs_to :User, :class_name => "User", :foreign_key => "user_id"
   belongs_to :Cliente, :class_name => "Cliente", :foreign_key => "cliente_id"
-  has_many :ServicioOrdens, :class_name => "Os::ServicioOrden", :foreign_key => "orden_servicio_id"
+  #has_many :ServicioOrdens, :class_name => "Os::ServicioOrden", :foreign_key => "orden_servicio_id"
   has_many :Equipos, :class_name => "Os::Equipo", :foreign_key => "orden_servicio_id"
+  has_many :ServicioOrdens, :class_name => "Os::ServicioOrden", :foreign_key => "orden_servicio_id"
+  has_many :Servicios, :through => :ServicioOrdens
+
+
+
+  def get_total
+  self.Servicios.sum(:costo)
+  end
+
 
 end

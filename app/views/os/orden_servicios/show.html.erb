@@ -92,7 +92,7 @@
     </tbody>
 
     </table>
-
+<p>costo: </p>
           <!-- Button trigger modal -->
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
             + Agregar Equipo
@@ -140,6 +140,7 @@
 
  </thead>
  <tbody>
+
     <% @os_orden_servicio.ServicioOrdens.each do |so|%>
    <tr>
 
@@ -151,7 +152,7 @@
 
  </tbody>
   </table>
-  <h1>Total <%= number_to_currency( @os_orden_servicio.ServicioOrdens.count("servicio_id")) %> </h1>
+<p>TOTAL: <%=number_to_currency(@os_orden_servicio.get_total)%></p>
   <!-- Button trigger modal de servicio -->
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#so">
     Agregar servicio

@@ -6,12 +6,13 @@ class Os::OrdenServiciosController < ApplicationController
   def index
     @os_orden_servicios = Os::OrdenServicio.all
     @os_orden_servicio = Os::OrdenServicio.new
+
   end
 
   # GET /os/orden_servicios/1
   # GET /os/orden_servicios/1.json
   def show
-
+   #@totals = Os::OrdenServicio.total
   end
 
   # GET /os/orden_servicios/new
