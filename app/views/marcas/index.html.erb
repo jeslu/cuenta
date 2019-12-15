@@ -1,29 +1,131 @@
 <p id="notice"><%= notice %></p>
+<!--
+  <div class="table-responsive-xm ">
+    <table class="table table-borderless">
+      <thead>
+        <tr class="table-info">
+          <th>Marca</th>
+          <!--<th>Activo</th>-->
+          <!--<th colspan="3"></th>
+        </tr>
+      </thead>
 
-<h1>Marcas</h1>
+      <tbody>
+        <% @marcas.each do |marca| %>
+          <tr>
+            <td><%= marca.marca %></td>
+            <!--<td><%= marca.activo %></td>-->
+          <!--  <td><%= link_to 'Show', marca %></td>
+            <td><%= link_to 'Edit', edit_marca_path(marca) %></td>
+            <td><%= link_to 'Destroy', marca, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<table>
-  <thead>
-    <tr>
-      <th>Marca</th>
-      <th>Activo</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  </div>
+-->
 
-  <tbody>
-    <% @marcas.each do |marca| %>
-      <tr>
-        <td><%= marca.marca %></td>
-        <td><%= marca.activo %></td>
-        <td><%= link_to 'Show', marca %></td>
-        <td><%= link_to 'Edit', edit_marca_path(marca) %></td>
-        <td><%= link_to 'Destroy', marca, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
+  <br>
+<div class="container border  ">
+  <br>
+  <nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <!--<div class=" border-bottom border-info">
+      <h3>Marcas</h3>
+
+    </div>-->
+    <h3>Marcas</h3>
+
+    <!--<%= link_to 'Nueva Marca', new_marca_path %>-->
+
+
+  </a>
+  <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter">
+    Nueva marca
+  </button>
+</nav>
+
+
+
+
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container border border-bottom ">
+          <div class="modal-body">
+        <%= form_with(model: @marca, local: true) do |form| %>
+
+
+          <div class="field">
+            <%= form.label :marca %>
+            <%= form.text_field :marca, id: :marca_marca, :class => "form-control" %>
+          </div>
+
+          <div class="field">
+            <%= form.label :activo %>
+            <%= form.check_box :activo, id: :marca_activo %>
+          </div>
+
+          <div class="actions">
+            <%= form.submit %>
+          </div>
+        <% end %>
+        </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Modal nueva marca-->
+
+
+  <!--<div class=" border-bottom border-info">
+    <h1>Marcas</h1>
+
+  </div>
+
+  <%= link_to 'Nueva Marca', new_marca_path %>
+-->
 <br>
+  <div class="card-deck ">
+  <% @marcas.each do |marca| %>
+  <div class="card bg-light mb-3" style="max-width: 10rem;">
+    <div class="card-header text-center text-white bg-info mb-3" ></div>
+    <div class="card-body text-center ">
+      <h4 class="card-title"><%= marca.marca %></h4>
+      <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+    </div>
+    <div class="card-footer bg-transparent">
 
-<%= link_to 'New Marca', new_marca_path %>
+
+
+      <%= link_to 'Editar', edit_marca_path(marca) %>
+      <%= link_to 'Eliminar', marca, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+
+    </div>
+  </div>
+  <% end %>
+  </div>
+
+
+</div>

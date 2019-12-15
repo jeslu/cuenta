@@ -1,37 +1,42 @@
+
+
+  <div class="modal-body">
 <%= form_with(model: cliente, local: true) do |form| %>
 
 
   <div class="field">
     <%= form.label :nombre %>
-    <%= form.text_field :nombre, id: :cliente_nombre %>
+    <%= form.text_field :nombre, id: :cliente_nombre, :class => "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :apellido_p %>
-    <%= form.text_field :apellido_p, id: :cliente_apellido_p %>
+    <%= form.text_field :apellido_p, id: :cliente_apellido_p, :class => "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :apellido_m %>
-    <%= form.text_field :apellido_m, id: :cliente_apellido_m %>
+    <%= form.text_field :apellido_m, id: :cliente_apellido_m, :class => "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :direccion %>
-    <%= form.text_field :direccion, id: :cliente_direccion %>
+    <%= form.text_field :direccion, id: :cliente_direccion, :class => "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :telefono %>
-    <%= form.text_field :telefono, id: :cliente_telefono %>
+    <%= form.text_field :telefono, id: :cliente_telefono, :class => "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :activo %>
     <%= form.check_box :activo, id: :cliente_activo %>
   </div>
-
   <div class="actions">
     <%= form.submit %>
   </div>
+
 <% end %>
+  </div>
+  

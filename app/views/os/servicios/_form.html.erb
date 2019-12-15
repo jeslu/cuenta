@@ -1,32 +1,25 @@
-<%= form_with(model: os_servicio, local: true) do |form| %>
-  <% if os_servicio.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(os_servicio.errors.count, "error") %> prohibited this os_servicio from being saved:</h2>
 
-      <ul>
-      <% os_servicio.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+
+<%= form_with(model: os_servicio, local: true) do |form| %>
+
 
   <div class="field">
     <%= form.label :servicio %>
-    <%= form.text_field :servicio, id: :os_servicio_servicio %>
+    <%= form.text_field :servicio, id: :os_servicio_servicio, :class => "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :costo %>
-    <%= form.text_field :costo, id: :os_servicio_costo %>
+    <%= form.text_field :costo, id: :os_servicio_costo, :class => "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :descripcion %>
-    <%= form.text_area :descripcion, id: :os_servicio_descripcion %>
+    <%= form.text_area :descripcion, id: :os_servicio_descripcion, :class => "form-control"%>
   </div>
-
+<br>
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+<br>

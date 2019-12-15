@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,94 +7,111 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
   </head>
   <body>
-    <nav class="navbar is-info">
-      <div class="container">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="#" style="font-weight:bold;">
-          <img src="<%= asset_path 'logo.png' %>">
+
+
+
+    <!-- Just an image -->
+    <!--<nav class="navbar navbar-light">
+
+
+        <img class="img-fluid " width="300" height="100" src="<%= asset_path 'CodeWeb_logo.jpg' %>">
+
+    </nav>-->
+
+
+
+  <div class="container-fluid">
+
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+  <!--  <a class="navbar-brand" href="#">
+      <img src="<%= asset_path 'CodeWeb_logo.jpg' %>" width="170" height="70" class="d-inline-block align-top" alt="">
+
+    </a>-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+      <!--  <li class=" ">
+          <img width="200px" height="100px" src="<%= asset_path 'CodeWeb_logo.jpg' %>">
+        </li>-->
+
+        <li class="nav-item active">
+          <h4><%= link_to 'Inicio', root_path, :class => "nav-link" %></h4>
+
+        </li>
+        <li class="nav-item">
+          <h4><%= link_to 'Cliente', clientes_path, :class => "nav-link"%></h4>
+
+        </li>
+
+        <!--<li class="nav-item">
+          <a class="nav-link"><%= link_to 'Cuentas', ct_cuentas_path, :class => "navbar-item"%></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"><%= link_to 'Catalogo', ct_producto_catalogos_path,:class => "navbar-item"%></a>
+        </li>-->
+       <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+            Configuracion
           </a>
-          <span class="navbar-burger burger" data-target="navMenu">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-        </div>
-        <div id="navMenu" class="navbar-menu">
-          <div class="navbar-start">
-            <a class="navbar-item">
-              <%= link_to 'Inicio', root_path, :class => "navbar-item" %>
-            </a>
-            <a class="navbar-item">
-              <%= link_to 'Cuentas', ct_cuentas_path, :class => "navbar-item"%>
-            </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <!--  <%= link_to 'Categoria',   ct_producto_categorias_path,:class => "dropdown-item"%>-->
+            <%= link_to 'Marcas',  marcas_path,:class => "dropdown-item"%>
+            <%= link_to 'Modelos', modelos_path,:class => "dropdown-item"%>
+            <%= link_to 'servicios', os_servicios_path,:class => "dropdown-item"%>
+
+        </li>
 
 
-            <div   class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link">
-                Productos
-              </a>
-              <div class="navbar-dropdown">
-                <a class="navbar-item">
-                <%= link_to 'Categorias',   ct_producto_categorias_path,:class => "navbar-item"%>
-                </a>
-                <a class="navbar-item">
-                  <%= link_to 'Marca',   ct_producto_marcas_path,:class => "navbar-item"%>
-                </a>
-                <a class="navbar-item">
-                <%= link_to 'Unidad Medida', ct_producto_umedidas_path,:class => "navbar-item"%>
-                </a>
-                <hr class="navbar-divider">
-                <a class="navbar-item">
-                <%= link_to 'Catalogo', ct_producto_catalogos_path,:class => "navbar-item"%>
-                </a>
-              </div>
-            </div>
-            <a class="navbar-item">
-              <%= link_to 'Cliente', clientes_path,:class => "navbar-item"%>
-            </a>
-            <a class="navbar-item">
-              Perfil
-            </a>
+
+
+      </ul>
+
+
+  <% if user_signed_in? %>
+        <div class="nav-item dropdown">
+          <div class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+             <%=current_user.nombre%>
+             <img class="rounded-circle img-fluid", <%= image_tag(current_user.avatar.url(:thumb)) %>
           </div>
-          <div class="navbar-end">
-            <div class="navbar-item">
 
-                    <% if user_signed_in? %>
-                  <div   class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">
-                        <%=current_user.nombre%>
-
-                        <img class="is-rounded", <%= image_tag(current_user.avatar.url(:thumb)) %>
-
-                    </a>
-                    <div class="navbar-dropdown">
-                      <a class="navbar-item">
-                          <%= link_to 'Editar usuario', edit_user_registration_path %>
-                      </a>
-                      <hr class="navbar-divider">
-                      <a class="navbar-item">
-
-                       <%= link_to "Salir", destroy_user_session_path, method: :delete %>
-                      </a>
-                    </div>
-                  </div>
-                  <%end%>
-            </div>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to 'Editar usuario', edit_user_registration_path, :class => "dropdown-item" %>
+            <div class="dropdown-divider"></div>
+            <%= link_to "Salir", destroy_user_session_path, method: :delete, :class => "dropdown-item" %>
           </div>
         </div>
-      </div>
-    </nav>
 
-      <script type="text/javascript">
-        (function() {
-          var burger = document.querySelector('.burger');
-          var nav = document.querySelector('#'+burger.dataset.target);
-          burger.addEventListener('click', function(){
-            burger.classList.toggle('is-active');
-            nav.classList.toggle('is-active');
-          });
-        })();
-      </script>
+  <%end%>
+    </div>
+  </nav>
+<br>
+<div class="container ">
+  <nav class="navbar ">
+        <div class="container ">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="#" style="font-weight:bold;">
+            <img class="img-fluid" src="<%= asset_path 'CodeWeb_logo.jpg' %>">
+            </a>
+
+          </div>
+
+<button type="button" class="btn btn-outline-info"><i class=' 	far fa-file-alt' style='font-size:48px'> </i><br><%= link_to 'ORDEN DE SERVICIO', os_orden_servicios_path  %></button>
+
+
+        </div>
+      </nav>
+
+</div><br>
+
+
 
   </body>
 </html>

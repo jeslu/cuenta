@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
-
+<div class="card-deck ">
+  <div class="card bg-light mb-3" style="max-width: 10rem;">
+    <div class="card-header text-center text-white bg-info mb-3" ></div>
+    <div class="card-body text-center ">
 <p>
   <strong>Marca:</strong>
   <%= @marca.marca %>
@@ -10,5 +13,9 @@
   <%= @marca.activo %>
 </p>
 
-<%= link_to 'Edit', edit_marca_path(@marca) %> |
-<%= link_to 'Back', marcas_path %>
+<%= link_to 'Editar', edit_marca_path(@marca) %> |
+<%= link_to 'Regresar', marcas_path %>
+</div>
+</div>
+</div>
+</div>

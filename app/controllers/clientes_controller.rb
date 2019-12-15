@@ -6,6 +6,7 @@ class ClientesController < ApplicationController
   # GET /clientes.json
   def index
     @clientes = Cliente.all
+    @cliente = Cliente.new
   end
 
   # GET /clientes/1
@@ -15,7 +16,7 @@ class ClientesController < ApplicationController
 
   # GET /clientes/new
   def new
-    @cliente = Cliente.new
+  #  @cliente = Cliente.new
   end
 
   # GET /clientes/1/edit
@@ -39,7 +40,7 @@ class ClientesController < ApplicationController
   end
   ####### CREATE ORDEN SERVICIO #################
   def create_orden_servicio
-  # 
+  #
       @os_orden_servicios = @client.OrdenServicios.new(os_orden_servicio_params)
       respond_to do |format|
         if   @os_orden_servicios.save

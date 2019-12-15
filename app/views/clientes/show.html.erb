@@ -1,17 +1,40 @@
-<p id="notice"><%= notice %></p>
-<!-- CLIENTE -->
-<div class="card" style="width: 18rem;">
+
+<!--
+<div class="card " style="max-width: 18rem;">
+  <div class="card-header"><strong>DATOS DEL CLIENTE</strong></div>
   <div class="card-body">
-    <h5 class="card-title">  <%= @cliente.nombre %> <%= @cliente.apellido_p %> <%= @cliente.apellido_m %></h5>
-    <h6 class="card-subtitle mb-2 text-muted">Cliente</h6>
-    <h7 class="card-title"><strong>Direccion:</strong> <a href="#" class="card-link">  <%= @cliente.direccion %></a></h7>
-    <h7 class="card-title">Telefono: <a href="#" class="card-link">  <%= @cliente.telefono %></a></h7>
-     <p class="card-text"><small class="text-muted"><%= @cliente.updated_at.to_date %></small></p>
-    <a href="#" class="card-link"><%= link_to 'Actualizar', edit_cliente_path(@cliente) %> </a>
-    <a href="#" class="card-link">Eliminar</a>
+    <h6 class="card-title"><strong>Nombre: </strong> <%= @cliente.nombre %> <%= @cliente.apellido_p %> <%= @cliente.apellido_m %></h6>
+    <h6 class="card-title"><strong>Direccion: </strong><%= @cliente.direccion %></h6>
+    <h6 class="card-title"><strong>Telefono:</strong><%= @cliente.telefono %></h6>
+    <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+<!--  </div>
+  <div class="card-footer bg-transparent border-success">
+    <%= link_to 'Edit', edit_cliente_path(@cliente) %> |
+    <%= link_to 'Back', clientes_path %>
+  </div>
+</div>-->
+
+<br>
+<div class="card text-center">
+  <div class="card-header">
+    <strong>DATOS DEL CLIENTE</strong>
+  </div>
+  <div class="card-body">
+    <h6 class="card-title"><strong>Cliente: </strong> <%= @cliente.nombre %> <%= @cliente.apellido_p %> <%= @cliente.apellido_m %></h6>
+    <h6 class="card-title"><strong>Direccion: </strong><%= @cliente.direccion %></h6>
+    <h6 class="card-title"><strong>Telefono:</strong><%= @cliente.telefono %></h6>
+
+  </div>
+  <div class="card-footer text-muted">
+    <%= link_to 'Modificar', edit_cliente_path(@cliente) %> |
+    <%= link_to 'Regresar', clientes_path %>
   </div>
 </div>
+<br>
+
+
 <!-- ORDEN DE SERVICIO -->
+<!--
 <div class="card">
   <div class="card-header">
     <a href="#">+ Orden de Servicio</a>
@@ -21,6 +44,7 @@
 
 
 <!-- FORMULARIO DE ORDEN DE SERVICIO-->
+<!--
 <%= form_with(model: Os::OrdenServicio.new, local: true, url: "#{@URL_DOMAIN}/clientes/#{@cliente.id}/orden_servicios") do |form| %>
 
 
@@ -63,7 +87,4 @@
   </div>
 </div>
 
-
-
-<%= link_to 'Edit', edit_cliente_path(@cliente) %> |
-<%= link_to 'Back', clientes_path %>
+-->

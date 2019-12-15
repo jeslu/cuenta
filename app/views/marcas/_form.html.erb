@@ -1,19 +1,12 @@
-<%= form_with(model: marca, local: true) do |form| %>
-  <% if marca.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(marca.errors.count, "error") %> prohibited this marca from being saved:</h2>
 
-      <ul>
-      <% marca.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<div class="container border border-bottom ">
+  <div class="modal-body">
+<%= form_with(model: marca, local: true) do |form| %>
+
 
   <div class="field">
     <%= form.label :marca %>
-    <%= form.text_field :marca, id: :marca_marca %>
+    <%= form.text_field :marca, id: :marca_marca, :class => "form-control" %>
   </div>
 
   <div class="field">
@@ -25,3 +18,5 @@
     <%= form.submit %>
   </div>
 <% end %>
+</div>
+</div>

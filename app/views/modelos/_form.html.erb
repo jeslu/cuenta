@@ -1,3 +1,6 @@
+
+<div class="container border border-bottom ">
+  <div class="modal-body">
 <%= form_with(model: modelo, local: true) do |form| %>
   <% if modelo.errors.any? %>
     <div id="error_explanation">
@@ -13,7 +16,7 @@
 
   <div class="field">
     <%= form.label :modelo %>
-    <%= form.text_field :modelo, id: :modelo_modelo %>
+    <%= form.text_field :modelo, id: :modelo_modelo, :class => "form-control" %>
   </div>
 
   <div class="field">
@@ -25,3 +28,5 @@
     <%= form.submit %>
   </div>
 <% end %>
+</div>
+</div>

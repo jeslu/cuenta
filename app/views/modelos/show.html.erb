@@ -1,14 +1,26 @@
+
+
+
 <p id="notice"><%= notice %></p>
+<div class="card-deck ">
+  <div class="card bg-light mb-3" style="max-width: 10rem;">
+    <div class="card-header text-center text-white bg-info mb-3" ></div>
+    <div class="card-body text-center ">
 
-<p>
-  <strong>Modelo:</strong>
-  <%= @modelo.modelo %>
-</p>
+      <p>
+        <strong>Modelo:</strong>
+        <%= @modelo.modelo %>
+      </p>
 
-<p>
-  <strong>Activo:</strong>
-  <%= @modelo.activo %>
-</p>
+      <p>
+        <strong>Activo:</strong>
+        <%= @modelo.activo %>
+      </p>
 
-<%= link_to 'Edit', edit_modelo_path(@modelo) %> |
-<%= link_to 'Back', modelos_path %>
+      <%= link_to 'Edit', edit_modelo_path(@modelo) %> |
+      <%= link_to 'Back', modelos_path %>
+
+</div>
+</div>
+</div>
+</div>
