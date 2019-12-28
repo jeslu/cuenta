@@ -14,4 +14,24 @@ class Os::OrdenServicio < ApplicationRecord
   end
 
 
+
+# CREAR PDF DE Orden Servicio
+def get_json
+  #permite utlizar cualquier tipo de objetos
+  datos = Hash.new
+  datos = {
+    :os => self,
+
+    }
+
+
+
+    json_files_path = Rails.application.config.json_files_path
+    file_json = "orden_servicio_#{self.id}.json"
+
+    file = File.new(json_files_path + file_json, "w")
+    file.puts(datos.to_json)
+    file.close
+  end
+
 end

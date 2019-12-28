@@ -12,6 +12,7 @@ class Os::OrdenServiciosController < ApplicationController
   # GET /os/orden_servicios/1
   # GET /os/orden_servicios/1.json
   def show
+    @orden.get_json
    #@totals = Os::OrdenServicio.total
   end
 
@@ -31,7 +32,7 @@ class Os::OrdenServiciosController < ApplicationController
 
     respond_to do |format|
       if @os_orden_servicio.save
-        format.html { redirect_to @os_orden_servicio, notice: 'Orden servicio was successfully created.' }
+        format.html { redirect_to @os_orden_servicio, notice: 'Orden servicio fue creado con éxito.' }
         format.json { render :show, status: :created, location: @os_orden_servicio }
       else
         format.html { render :new }
@@ -45,7 +46,7 @@ class Os::OrdenServiciosController < ApplicationController
   def update
     respond_to do |format|
       if @os_orden_servicio.update(os_orden_servicio_params)
-        format.html { redirect_to @os_orden_servicio, notice: 'Orden servicio was successfully updated.' }
+        format.html { redirect_to @os_orden_servicio, notice: 'Orden servicio se actualizó con éxito.' }
         format.json { render :show, status: :ok, location: @os_orden_servicio }
       else
         format.html { render :edit }
@@ -59,7 +60,7 @@ class Os::OrdenServiciosController < ApplicationController
   def destroy
     @os_orden_servicio.destroy
     respond_to do |format|
-      format.html { redirect_to os_orden_servicios_url, notice: 'Orden servicio was successfully destroyed.' }
+      format.html { redirect_to os_orden_servicios_url, notice: 'Orden servicio fue destruido con éxito.' }
       format.json { head :no_content }
     end
   end
@@ -67,7 +68,7 @@ class Os::OrdenServiciosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_os_orden_servicio
-       @os_orden_servicio = Os::OrdenServicio.find(params[:id])
+       @orden = @os_orden_servicio = Os::OrdenServicio.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
