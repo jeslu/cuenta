@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Categoria:</strong>
+  <%= @producto_catalogo.categoria_id %>
+</p>
+
+<p>
+  <strong>Umedida:</strong>
+  <%= @producto_catalogo.umedida_id %>
+</p>
+
+<p>
+  <strong>Marca:</strong>
+  <%= @producto_catalogo.marca_id %>
+</p>
+
+<p>
+  <strong>Barcode:</strong>
+  <%= @producto_catalogo.barcode %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @producto_catalogo.descripcion %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @producto_catalogo.nombre %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @producto_catalogo.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_producto_catalogo_path(@producto_catalogo) %> |
+<%= link_to 'Back', producto_catalogos_path %>

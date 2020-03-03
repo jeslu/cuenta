@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ct Cuenta Cotizacions</h1>
+
+<table>
+  <thead>
+    <tr>
+    
+      <th>Activo</th>
+      <th>Cuenta cliente</th>
+      <th>Producto</th>
+      <th>Cantidad</th>
+      <th>Total</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ct_cuenta_cotizacions.each do |ct_cuenta_cotizacion| %>
+      <tr>
+
+        <td><%= ct_cuenta_cotizacion.activo %></td>
+        <td><%= ct_cuenta_cotizacion.cuenta_cliente_id %></td>
+        <td><%= ct_cuenta_cotizacion.producto_id %></td>
+        <td><%= ct_cuenta_cotizacion.cantidad %></td>
+        <td><%= ct_cuenta_cotizacion.total %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

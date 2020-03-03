@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 2020-01-14 00:40:10
+  activo: false
+  cuenta_cliente_id: 
+  producto_id: 
+  cantidad: 1
+  total: 9.99
+
+two:
+  fecha: 2020-01-14 00:40:10
+  activo: false
+  cuenta_cliente_id: 
+  producto_id: 
+  cantidad: 1
+  total: 9.99

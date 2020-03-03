@@ -1,9 +1,9 @@
 require "application_system_test_case"
 
-class MarcasTest < ApplicationSystemTestCase
+class Producto::MarcasTest < ApplicationSystemTestCase
   # test "visiting the index" do
-  #   visit marcas_url
+  #   visit producto_marcas_url
   #
-  #   assert_selector "h1", text: "Marca"
+  #   assert_selector "h1", text: "Producto::Marca"
   # end
 end

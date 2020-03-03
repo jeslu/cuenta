@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Modelo:</strong>
+  <%= @producto_modelo.modelo %>
+</p>
+
+<p>
+  <strong>Activo:</strong>
+  <%= @producto_modelo.activo %>
+</p>
+
+<%= link_to 'Edit', edit_producto_modelo_path(@producto_modelo) %> |
+<%= link_to 'Back', producto_modelos_path %>

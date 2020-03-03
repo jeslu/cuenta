@@ -1,0 +1,56 @@
+<%= form_with(model: producto_catalogo, local: true) do |form| %>
+  <% if producto_catalogo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(producto_catalogo.errors.count, "error") %> prohibited this producto_catalogo from being saved:</h2>
+
+      <ul>
+      <% producto_catalogo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :categoria_id %>
+
+    <%= form.collection_select(:categoria_id, Producto::Categoria.all, :id, :categoria, options = {}, {:class => "form-control"})%>
+
+  </div>
+
+  <div class="field">
+    <%= form.label :umedida_id %>
+
+      <%= form.collection_select(:umedida_id, Producto::Umedida.all, :id, :medida, options = {}, {:class => "form-control"})%>
+  </div>
+
+  <div class="field">
+    <%= form.label :marca_id %>
+
+    <%= form.collection_select(:marca_id, Producto::Marca.all, :id, :marca, options = {}, {:class => "form-control"})%>
+
+  </div>
+
+
+
+  <div class="field">
+    <%= form.label :descripcion %>
+    <%= form.text_area :descripcion, id: :producto_catalogo_descripcion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, id: :producto_catalogo_nombre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :costo %>
+    <%= form.text_field :costo, id: :producto_catalogo_costo %>
+  </div>
+
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

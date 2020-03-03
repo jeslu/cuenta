@@ -1,0 +1,23 @@
+<%= form_with(model: ct_cuenta_cliente, local: true) do |form| %>
+
+
+  <div class="field">
+    <%= form.label :cliente_id %>
+      <%= form.collection_select(:cliente_id, Cliente.all, :id, :nombre, options = {}, {:class => "form-control"})%>
+
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha_c %>
+    <%= form.datetime_select :fecha_c, id: :ct_cuenta_cliente_fecha_c %>
+  </div>
+
+  <div class="field">
+    <%= form.label :activo %>
+    <%= form.check_box :activo, id: :ct_cuenta_cliente_activo %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

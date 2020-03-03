@@ -82,10 +82,13 @@
     <tbody>
       <% @os_orden_servicio.Equipos.each do |equipo|%>
       <tr>
-        <th scope="row"><%=equipo.n_serie%></th>
+        <th><%=equipo.n_serie%></th>
         <td><%=equipo.TipoEquipo.tipo%></td>
         <td><%=equipo.Marca.marca%></td>
         <td><%=equipo.Modelo.modelo%></td>
+        <td> <%= link_to 'eliminar',"#{@URL_DOMAIN}/os/orden_servicios/#{@os_orden_servicio.id}/equipos/#{equipo.id}",
+               method: :delete,
+               data: { confirm: 'estas seguro?' } %></td>
       </tr>
   <%end%>
 
@@ -147,6 +150,9 @@
      <td><%=so.Servicio.servicio%></td>
      <td><%=so.Servicio.descripcion%></td>
      <td><%=number_to_currency(so.Servicio.costo)%></td>
+     <td> <%= link_to 'eliminar',"#{@URL_DOMAIN}/os/orden_servicios/#{@os_orden_servicio.id}/servicio_ordens/#{so.id}",
+              method: :delete,
+              data: { confirm: 'estas seguro?' } %></td>
    </tr>
    <%end%>
 
@@ -193,6 +199,7 @@
           <%= form.collection_select(:servicio_id, Os::Servicio.all, :id, :servicio, options = {}, {:class => "form-control"})%>
 
         </div>
+      
         <div class="actions">
           <%= form.submit %>
         </div>

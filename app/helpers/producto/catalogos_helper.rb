@@ -1,0 +1,2 @@
+module Producto::CatalogosHelper
+end

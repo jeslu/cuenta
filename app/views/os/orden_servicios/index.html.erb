@@ -26,12 +26,7 @@
             <%= form.collection_select(:cliente_id, Cliente.all, :id, :nombre, options = {}, {:class => "form-control"})%>
           </div>
 
-          <div class="field">
-            <%= form.label :servicio_id %>
-
-            <%= form.collection_select(:servicio_id, Os::Servicio.all, :id, :servicio, options = {}, {:class => "form-control"})%>
-
-          </div>
+        <%= Time.now.strftime("%d-%m-%Y")	%>	
 
 
           <div class="field">

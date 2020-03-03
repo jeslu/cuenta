@@ -1,5 +1,6 @@
 class Os::OrdenServiciosController < ApplicationController
   before_action :set_os_orden_servicio, only: [:show, :edit, :update, :destroy]
+  before_action :set_orden_servicio, only: [:equipo_delete]
 
   # GET /os/orden_servicios
   # GET /os/orden_servicios.json
@@ -64,11 +65,24 @@ class Os::OrdenServiciosController < ApplicationController
       format.json { head :no_content }
     end
   end
+#  def equipo_delete
+#    @orden.Equipos.find(params[:equipo_id]).destroy
+#    respond_to do |format|
+#      format.html {redirecto "#{@URL_DOMAIN}/os/orden_servicios/#{@os_orden_servicio.id}", notice: 'jajaj fue eliminado con exito'}
+#      format.json { head :no_content }
+#    end
+
+#  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_os_orden_servicio
        @orden = @os_orden_servicio = Os::OrdenServicio.find(params[:id])
+    end
+
+    def set_orden_servicio
+      @orden = Os::OrdenServicio.find(params[:orden_servicio_id])
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

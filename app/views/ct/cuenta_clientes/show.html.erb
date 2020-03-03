@@ -1,0 +1,293 @@
+<p id="notice"><%= notice %></p>
+
+
+
+
+
+
+
+
+
+<div class="card container">
+
+  <div class="container body">
+    <div class="row">
+      <div class="col-sm">
+
+
+        <div class="card" style="width: 31rem;">
+          <div class="card">
+
+
+          <div class="card-body" >
+            <div class="card-title" >
+              <div class="card-header">
+
+              </div>
+            <p>
+              <strong>Cliente:</strong>
+              <%= @ct_cuenta_cliente.Cliente.nombre %> <%= @ct_cuenta_cliente.Cliente.apellido_p %> <%= @ct_cuenta_cliente.Cliente.apellido_m %>
+            </p>
+            <p>
+              <strong>Direccion:</strong>
+              <%= @ct_cuenta_cliente.Cliente.direccion %>
+            </p>
+            <p>
+              <strong>Telefono:</strong>
+              <%= @ct_cuenta_cliente.Cliente.telefono %>
+            </p>
+
+
+            </div>
+          </div>
+         </div>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="card" style="width: 32rem;">
+          <div class="card">
+            <div class="card-body" >
+
+              <div class="card-title" >
+                <div class="card-header">
+                  <div class="row">
+                    <div class="col">
+                      <p>
+                        <strong>Cotizacion: #</strong><br>
+                        <%= @ct_cuenta_cliente.id %>
+                      </p>
+                    </div>
+                    <div class="col">  <p>
+                        <strong>Fecha:</strong><br>
+                        <%= @ct_cuenta_cliente.fecha_c.to_date %>
+                      </p></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+<br>
+
+
+
+    <div class="card">
+      <div class="card">
+      </div>
+
+        </div>
+
+
+
+<br>
+
+
+        <div class="card">
+
+          <div class="table-responsive">
+            <table class="table">
+
+              <thead>
+                <tr>
+
+                  <th scope="col">Descripcion</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Precio</th>
+                  <th scope="col">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @ct_cuenta_cliente.CuentaCotizacions.each do |cotizacion| %>
+                <tr>
+
+                  <td><%=cotizacion.Producto.nombre%></td>
+                  <td><%=cotizacion.cantidad%></td>
+                  <td><%=number_to_currency(cotizacion.precio)%></td>
+                   <td><%=number_to_currency (cotizacion.total)%></td>
+
+                   <td> <%= link_to 'X',"#{@URL_DOMAIN}/ct/cuenta_clientes/#{@ct_cuenta_cliente.id}/cuenta_cotizacions/#{cotizacion.id}",
+                            method: :delete,
+                            data: { confirm: 'estas seguro?' } %></td>
+
+
+                </tr>
+                <%end%>
+              </tbody>
+            </table>
+            <strong><h3>TOTAL: <%=number_to_currency(@ct_cuenta_cliente.get_total_cotiza)%></h3></strong>
+            <br>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+              <caption>Lista de material</caption>
+            </button>
+          </div>
+        </div>
+
+
+
+
+  </div>
+</div>
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+        <div class="card">
+          <div class="card-body" id="app">
+            <!--- CRACIONES DE NOTAS O TIKET DE LA CUENTA CLIENTE -->
+            <h2>Material:</h2>
+            <%= form_with(model: Ct::CuentaCotizacion.new, local: true, url: "#{@URL_DOMAIN}/ct/cuenta_clientes/#{@ct_cuenta_cliente.id}/cuenta_cotizacions") do |form| %>
+
+
+
+            <div class="field">
+              <%= form.label :producto_id%>
+              <%= form.collection_select(:producto_id, Producto::Catalogo.all, :id, :nombre, options = {}, {:class => "form-control"}) %>
+            </div>
+            <div class="field">
+              <%= form.label :Precio %>
+              <input type="number" v-model.number="precio" name="ct_cuenta_cotizacion[precio]" placeholder="Precio"/>
+            </div>
+
+
+
+            <div class="field">
+              <%= form.label :cantidad %>
+              <input type="number" v-model.number="cantidad" name="ct_cuenta_cotizacion[cantidad]" placeholder="Cantidad"/>
+            </div>
+
+            <div class="field">
+              <%= form.label :total %>
+              <input type="number" v-model.number="total" name="ct_cuenta_cotizacion[total]" placeholder="total"/>
+            </div>
+
+            <div class="field">
+              <%= form.label :activo %>
+              <%= form.check_box :activo, id: :ct_cuenta_cotizacion_activo %>
+            </div>
+
+            <div class="actions">
+              <%= form.submit %>
+              <button type="submit" class="btn btn-primary">Agregar</button>
+            </div>
+
+            <%end%>
+  {{$data | json}}
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<%= link_to 'Editar', edit_ct_cuenta_cliente_path(@ct_cuenta_cliente) %> |
+<%= link_to 'Regresar', ct_cuenta_clientes_path %>
+
+
+
+
+
+
+<!--- VUE JS  JAVASCRIPT--->
+
+
+
+
+
+
+
+  <script src="https://cdn.rawgit.com/chrisvfritz/5f0a639590d6e648933416f90ba7ae4e/raw/974aa47f8f9c5361c5233bd56be37db8ed765a09/currency-validator.js"></script>
+
+
+  <script type="text/javascript">
+    Vue.component('currency-input', {
+        template: '\
+      <div>\
+      <label v-if="label">{{ label }}</label>\
+      $\
+      <input\
+      ref="input"\
+      v-bind:value="value"\
+      v-on:input="updateValue($event.target.value)"\
+      v-on:focus="selectAll"\
+      v-on:blur="formatValue"\
+      >\
+      </div>\
+      ',
+        props: {
+            value: {
+                type: Number,
+                default: 0
+            },
+            label: {
+                type: String,
+                default: ''
+            }
+        },
+        mounted: function () {
+            this.formatValue()
+        },
+        methods: {
+            enviar: function () {
+                alert('desea guardar..');
+            },
+            updateValue: function (value) {
+                var result = currencyValidator.parse(value, this.value)
+                if (result.warning) {
+                    this.$refs.input.value = result.value
+                }
+                this.$emit('input', result.value)
+            },
+            formatValue: function () {
+                this.$refs.input.value = currencyValidator.format(this.value)
+            },
+            selectAll: function (event) {
+                // Workaround for Safari bug
+                // http://stackoverflow.com/questions/1269722/selecting-text-on-focus-using-jquery-not-working-in-safari-and-chrome
+                setTimeout(function () {
+                    event.target.select()
+                }, 0)
+            }
+        }
+    })
+
+    new Vue({
+        el: '#app',
+        data: {
+            cantidad: 0,
+            precio: 0,
+            fecha: "",
+            descuento: 0
+        },
+        computed: {
+            total: function () {
+                return ((
+                        this.cantidad * this.precio * 100 - this.descuento * 100) / 100).toFixed(2)
+            }
+        }
+    })
+  </script>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Medida:</strong>
+  <%= @producto_umedida.medida %>
+</p>
+
+<p>
+  <strong>Activo:</strong>
+  <%= @producto_umedida.activo %>
+</p>
+
+<%= link_to 'Edit', edit_producto_umedida_path(@producto_umedida) %> |
+<%= link_to 'Back', producto_umedidas_path %>

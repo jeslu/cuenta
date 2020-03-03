@@ -1,2 +1,0 @@
-module Ct::ProductoUmedidasHelper
-end

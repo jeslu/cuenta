@@ -59,7 +59,8 @@ class Os::ServicioOrdensController < ApplicationController
   def destroy
     @os_servicio_orden.destroy
     respond_to do |format|
-      format.html { redirect_to os_servicio_ordens_url, notice: 'Servicio orden was successfully destroyed.' }
+      format.html { redirect_to "#{@URL_DOMAIN}/os/orden_servicios/#{@orden_servicio.id}", notice: 'Equipo fue eliminado exitosamente.' }
+      format.json { head :no_content }
       format.json { head :no_content }
     end
   end

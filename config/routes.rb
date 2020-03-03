@@ -2,6 +2,20 @@ Rails.application.routes.draw do
 
 
 
+  namespace :ct do
+    resources :cuenta_clientes do
+    resources :cuenta_cotizacions
+
+  end
+  end
+
+  namespace :producto do
+    resources :umedidas
+      resources :marcas
+      resources :modelos
+      resources :catalogos
+      resources :categorias
+  end
 namespace :os do
       resources :servicios
       resources :tipo_equipos
@@ -9,8 +23,11 @@ namespace :os do
       resources :servicio_ordens
 
       resources :orden_servicios do
+          #match 'equipo/:equipo_id', to: 'orden_servicios#equipo_delete', via: [:delete]
           resources :equipos
-          resources :servicio_ordens  
+        
+
+          resources :servicio_ordens
       end
   end
 
@@ -22,16 +39,14 @@ namespace :os do
   end
 
 
-  namespace :ct do
-    resources :cuenta
-  end
+
 
   namespace :ct do
-            resources :producto_umedidas
-            resources :producto_marcas
-             resources :producto_categorias
-               resources :producto_catalogos
-                 resources :cuentas
+            #resources :producto_umedidas
+            #resources :producto_marcas
+             #resources :producto_categorias
+              # resources :producto_catalogos
+                 #resources :cuentas
   end
 
 root :to => 'index#index'

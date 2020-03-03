@@ -1,0 +1,27 @@
+<%= form_with(model: producto_marca, local: true) do |form| %>
+  <% if producto_marca.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(producto_marca.errors.count, "error") %> prohibited this producto_marca from being saved:</h2>
+
+      <ul>
+      <% producto_marca.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :marca %>
+    <%= form.text_field :marca, id: :producto_marca_marca %>
+  </div>
+
+  <div class="field">
+    <%= form.label :activo %>
+    <%= form.check_box :activo, id: :producto_marca_activo %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

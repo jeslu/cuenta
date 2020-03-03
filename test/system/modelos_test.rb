@@ -1,9 +1,9 @@
 require "application_system_test_case"
 
-class ModelosTest < ApplicationSystemTestCase
+class Producto::ModelosTest < ApplicationSystemTestCase
   # test "visiting the index" do
-  #   visit modelos_url
+  #   visit producto_modelos_url
   #
-  #   assert_selector "h1", text: "Modelo"
+  #   assert_selector "h1", text: "Producto::Modelo"
   # end
 end

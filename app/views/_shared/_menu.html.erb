@@ -50,19 +50,14 @@
 
         </li>
 
-        <!--<li class="nav-item">
-          <a class="nav-link"><%= link_to 'Cuentas', ct_cuentas_path, :class => "navbar-item"%></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link"><%= link_to 'Catalogo', ct_producto_catalogos_path,:class => "navbar-item"%></a>
-        </li>-->
+
        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
             Configuracion
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <!--  <%= link_to 'Categoria',   ct_producto_categorias_path,:class => "dropdown-item"%>-->
+
             <%= link_to 'Marcas',  marcas_path,:class => "dropdown-item"%>
             <%= link_to 'Modelos', modelos_path,:class => "dropdown-item"%>
             <%= link_to 'servicios', os_servicios_path,:class => "dropdown-item"%>
@@ -79,7 +74,7 @@
         <div class="nav-item dropdown">
           <div class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
              <%=current_user.nombre%>
-             <img class="rounded-circle img-fluid", <%= image_tag(current_user.avatar.url(:thumb)) %>
+             <img class="rounded-circle img-fluid",<%= image_tag(current_user.avatar.url(:thumb)) %>
           </div>
 
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -103,7 +98,7 @@
 
           </div>
 
-<button type="button" class="btn btn-outline-info"><i class=' 	far fa-file-alt' style='font-size:48px'> </i><br><%= link_to 'ORDEN DE SERVICIO', os_orden_servicios_path  %></button>
+<button type="button" class="btn btn-outline-info"><i class='far fa-file-alt' style='font-size:48px'> </i><br><%= link_to 'ORDEN DE SERVICIO', os_orden_servicios_path  %></button>
 
 
         </div>

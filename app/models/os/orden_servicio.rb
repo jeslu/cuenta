@@ -21,6 +21,10 @@ def get_json
   datos = Hash.new
   datos = {
     :os => self,
+    :cliente => self.Cliente,
+    :user => self.User,
+    :equipos => self.Equipos
+
 
     }
 

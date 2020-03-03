@@ -25,12 +25,16 @@
    inflect.irregular 'serv_categoria','serv_categorias'
    inflect.irregular 'solicitud_servicio','solicitud_servicios'
    # MODULO CUENTA
-   inflect.irregular 'cliente', 'clientes'
-   inflect.irregular 'producto_marca', 'producto_marcas'
-   inflect.irregular 'producto_umedida','producto_umedidas'
-   inflect.irregular 'producto_categoria','producto_categorias'
-   inflect.irregular 'producto_catalogo','producto_catalogos'
+   inflect.irregular 'cuenta_cliente', 'cuenta_clientes'
    inflect.irregular 'cuenta', 'cuentas'
+   inflect.irregular 'cuenta_pago', 'cuenta_pagos'
+   inflect.irregular 'cuenta_detalle', 'cuenta_detalles'
+   # MODULO PRODUCTOS
+   inflect.irregular 'marca', 'marcas'
+   inflect.irregular 'modelo', 'modelos'
+   inflect.irregular 'umedida','umedidas'
+   inflect.irregular 'categoria','categorias'
+   inflect.irregular 'catalogo','catalogos'
    # MODULO ORDEN DE servicios
    inflect.irregular 'modelo', 'modelos'
    inflect.irregular 'os_equipo','os_equipos'
@@ -39,5 +43,5 @@
    inflect.irregular 'os_orden_servicio','os_orden_servicios'
    inflect.irregular 'servicio_orden', 'servicio_ordens'
 
-
+   inflect.irregular 'cliente', 'clientes'
  end

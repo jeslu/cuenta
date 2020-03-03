@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191115012723) do
+ActiveRecord::Schema.define(version: 20200114064010) do
 
   create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "nombre"
@@ -23,45 +23,21 @@ ActiveRecord::Schema.define(version: 20191115012723) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "ct_cuentas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "ct_cuenta_clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.bigint "cliente_id"
+    t.datetime "fecha_c"
+    t.boolean "activo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ct_cuenta_cotizacions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.datetime "fecha"
     t.boolean "activo"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "ct_producto_catalogos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.bigint "categoria_id"
-    t.bigint "umedida_id"
-    t.bigint "marca_id"
-    t.string "barcode"
-    t.text "descripcion"
-    t.text "json"
-    t.string "nombre"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "user_id"
-  end
-
-  create_table "ct_producto_categorias", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string "categoria"
-    t.boolean "activo"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "ct_producto_marcas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string "marca"
-    t.boolean "activo"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "ct_producto_umedidas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string "medida"
-    t.boolean "activo"
+    t.bigint "cuenta_cliente_id"
+    t.bigint "producto_id"
+    t.integer "cantidad"
+    t.decimal "total", precision: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -95,9 +71,6 @@ ActiveRecord::Schema.define(version: 20191115012723) do
   create_table "os_orden_servicios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.bigint "user_id"
     t.bigint "cliente_id"
-    t.bigint "servicio_id"
-    t.bigint "equipo_id"
-    t.boolean "reparacion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cliente_id"], name: "index_os_orden_servicios_on_cliente_id"
@@ -113,7 +86,7 @@ ActiveRecord::Schema.define(version: 20191115012723) do
 
   create_table "os_servicios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "servicio"
-    t.decimal "costo", precision: 10
+    t.integer "costo"
     t.text "descripcion"
     t.bigint "oreden_servicio_id"
     t.datetime "created_at", null: false
@@ -122,6 +95,46 @@ ActiveRecord::Schema.define(version: 20191115012723) do
 
   create_table "os_tipo_equipos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "tipo"
+    t.boolean "activo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "producto_catalogos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.bigint "categoria_id"
+    t.bigint "umedida_id"
+    t.bigint "marca_id"
+    t.string "barcode"
+    t.text "descripcion"
+    t.string "nombre"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "producto_categorias", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "categoria"
+    t.boolean "activo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "producto_marcas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "marca"
+    t.boolean "activo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "producto_modelos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "modelo"
+    t.boolean "activo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "producto_umedidas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "medida"
     t.boolean "activo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

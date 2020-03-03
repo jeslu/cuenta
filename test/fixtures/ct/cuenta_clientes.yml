@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cliente_id: 
+  fecha_c: 2019-12-28 13:42:14
+  activo: false
+
+two:
+  cliente_id: 
+  fecha_c: 2019-12-28 13:42:14
+  activo: false

@@ -1,0 +1,44 @@
+<%= form_with(model: ct_cuenta_cotizacion, local: true, url: @url_form ) do |form| %>
+
+
+  <div class="field">
+    <%= form.label :fecha %>
+    <%= form.datetime_select :fecha, id: :ct_cuenta_cotizacion_fecha %>
+  </div>
+
+  <div class="field">
+    <%= form.label :activo %>
+    <%= form.check_box :activo, id: :ct_cuenta_cotizacion_activo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cuenta_cliente_id %>
+    <%= form.text_field :cuenta_cliente_id, id: :ct_cuenta_cotizacion_cuenta_cliente_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :producto_id %>
+    <%= form.text_field :producto_id, id: :ct_cuenta_cotizacion_producto_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cantidad %>
+    <%= form.number_field :cantidad, id: :ct_cuenta_cotizacion_cantidad %>
+  </div>
+  <div class="field">
+    <%= form.label :precio %>
+    <%= form.number_field :cantidad, id: :ct_cuenta_cotizacion_precio %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :total %>
+    <%= form.text_field :total, id: :ct_cuenta_cotizacion_total %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+
+<% end %>

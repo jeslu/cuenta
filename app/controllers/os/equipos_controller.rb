@@ -1,6 +1,6 @@
 class Os::EquiposController < ApplicationController
-  before_action :set_orden_servicio, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_os_equipo, only: [:show, :edit, :update, :destroy]
+  before_action :set_orden_servicio, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /os/equipos
   # GET /os/equipos.json
@@ -48,7 +48,7 @@ class Os::EquiposController < ApplicationController
   def update
     respond_to do |format|
       if @os_equipo.update(os_equipo_params)
-        format.html { redirect_to @os_equipo, notice: 'Equipo was successfully updated.' }
+        format.html { redirect_to "#{@URL_DOMAIN}/os/orden_servicios/#{@orden_servicio.id}", notice: 'Equipo was successfully updated.' }
         format.json { render :show, status: :ok, location: @os_equipo }
       else
         format.html { render :edit }
@@ -62,7 +62,7 @@ class Os::EquiposController < ApplicationController
   def destroy
     @os_equipo.destroy
     respond_to do |format|
-      format.html { redirect_to os_equipos_url, notice: 'Equipo was successfully destroyed.' }
+      format.html { redirect_to "#{@URL_DOMAIN}/os/orden_servicios/#{@orden_servicio.id}", notice: 'Equipo fue eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end
@@ -75,6 +75,7 @@ def set_orden_servicio
 end
 
     def set_os_equipo
+      @os_equipo =  @orden_servicio = Os::OrdenServicio.find(params[:orden_servicio_id])
       @os_equipo = @orden_servicio.Equipos.find(params[:id])
     end
 

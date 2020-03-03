@@ -8,8 +8,7 @@ def hg_card_cliente(c)
       <h7 class='card-title'><strong>Direccion:</strong> <a href='' class='card-link'>#{c.direccion} </a></h7>...
       <h7 class='card-title'><strong>Telefono:</strong> <a href='' class='card-link'> #{c.telefono} </a></h7>
        <p class='card-text'><small class='text-muted'>#{c.created_at.to_date}</small></p>
-      <a href='' class='card-link'>edit </a>
-      <a href='' class='card-link'>Eliminar</a>
+
     </div>
   </div>".html_safe
 end
