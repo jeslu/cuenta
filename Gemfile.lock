@@ -126,7 +126,7 @@ GEM
       terrapin (~> 0.6.0)
     popper_js (1.14.5)
     public_suffix (3.0.3)
-    puma (3.12.0)
+    puma (3.12.4)
     rack (2.0.6)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -242,7 +242,7 @@ DEPENDENCIES
   mysql2
   nokogiri
   paperclip (~> 6.0.0)
-  puma (~> 3.7)
+  puma (~> 3.12)
   rails (~> 5.1.6, >= 5.1.6.1)
   sass-rails (~> 5.0)
   selenium-webdriver
