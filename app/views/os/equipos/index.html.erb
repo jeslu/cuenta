@@ -1,15 +1,79 @@
 <p id="notice"><%= notice %></p>
+<!-- Modal Crear equipo-->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class=" border-bottom border-info">
+          <div class="modal-header">
+            <h3 class="modal-title" id="exampleModalLongTitle">Nuevo equipo</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
 
-<h1>Os Equipos</h1>
+      <div class="container border  ">
+        <div class="modal-body">
+          <%= form_with(model: @os_equipo, local: true) do |form| %>
+            <div class="field">
+              <%= form.label :n_serie %>
+              <%= form.text_field :n_serie, id: :os_equipo_n_serie,:class => "form-control" %>
+            </div>
+            <div class="field">
+              <%= form.label :marca_id %>
+              <%= form.collection_select(:marca_id, Marca.all, :id, :marca, options = {}, {:class => "form-control"})%>
+            </div>
+            <div class="field">
+              <%= form.label :modelo_id %>
+              <%= form.collection_select(:modelo_id, Modelo.all, :id, :modelo, options = {}, {:class => "form-control"})%>
+            </div>
+            <div class="field">
+              <%= form.label :tipo_equipo_id %>
+              <%= form.collection_select(:tipo_equipo_id, Os::TipoEquipo.all, :id, :tipo, options = {}, {:class => "form-control"})%>
+            </div>
+            <br>
+            <div class="form-group">
+              <button type="submit" class="btn btn-info btn-large btn-block" id="btnIngresar">Crear</button>
+            </div>
+          <% end %>
+        </div>
+      </div>
 
-<table>
+      <div class="modal-footer">
+        <button type="button" class="btn  btn-large btn-block btn-outline-danger" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- termina Modal de equipo-->
+
+
+
+
+
+
+
+<div class="container border  ">
+<div class=" border-bottom border-info">
+<nav class="navbar ">
+  <h1>Equipos</h1>
+<button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter">
+Nuevo equipo
+</button>
+</nav>
+</div>
+<br>
+
+
+<div class="table-responsive-xm ">
+<table class="table table-borderless">
   <thead>
-    <tr>
+    <tr class="table-info">
       <th>N serie</th>
       <th>Marca</th>
       <th>Modelo</th>
       <th>Tipo equipo</th>
-      <th>Orden servicio</th>
+      <th>Acciones</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,18 +82,22 @@
     <% @os_equipos.each do |os_equipo| %>
       <tr>
         <td><%= os_equipo.n_serie %></td>
-        <td><%= os_equipo.Marca.marca %></td>
-        <td><%= os_equipo.Modelo.modelo %></td>
+        <td><%= os_equipo.marca.marca %></td>
+        <td><%= os_equipo.modelo.modelo %></td>
         <td><%= os_equipo.TipoEquipo.tipo %></td>
-        <td><%= os_equipo.orden_servicio_id %></td>
-        <td><%= link_to 'Show', os_equipo %></td>
+        <td><%= link_to  edit_os_equipo_path(os_equipo) do  %>
+                <i class="fas fa-pencil-alt"></i>
+          <%end %>
+        <%= link_to  os_equipo, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <i class="far fa-trash-alt"></i>
+        <%end %></td>
+        <!--<td><%= link_to 'Show', os_equipo %></td>
         <td><%= link_to 'Edit', edit_os_equipo_path(os_equipo) %></td>
-        <td><%= link_to 'Destroy', os_equipo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', os_equipo, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>
     <% end %>
   </tbody>
 </table>
-
+  </div>
+    </div>
 <br>
-
-<%= link_to 'New Os Equipo', new_os_orden_servicio_equipo_path %>
